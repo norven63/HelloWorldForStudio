@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- name属性值必须和类名一致 -->
+    <declare-styleable name="MyAttrView">
+        <attr name="testattr" format="integer" /><!-- int -->
+        <attr name="headerView" format="reference" /><!-- 资源引用 -->
+    </declare-styleable>
+
+</resources>
