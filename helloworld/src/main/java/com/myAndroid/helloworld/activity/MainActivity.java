@@ -16,6 +16,7 @@ import android.content.SharedPreferences.Editor;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.text.util.Linkify;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -231,21 +232,6 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    // 保存文件
-    public void onSaveFile(View view) {
-        fileContent = (EditText) findViewById(R.id.fileContent);
-        String content = fileContent.getText().toString();
-        try {
-            FileOutputStream fos = this.openFileOutput("dev_test.txt", MODE_PRIVATE);
-            OutputStreamWriter osw = new OutputStreamWriter(fos);
-            osw.write(content);
-            osw.flush();
-            osw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     @SuppressLint("ResourceAsColor")
     public void openLink(View view) {
         Linkify.addLinks((TextView) findViewById(R.id.url_), Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
@@ -268,6 +254,23 @@ public class MainActivity extends Activity {
         // getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 
         setContentView(R.layout.activity_main);
+
+        final TextView longContentTextView = (TextView) findViewById(R.id.long_content_textView);
+        final TextView moreContentTextView = (TextView) findViewById(R.id.more_content_textView);
+
+        StringBuffer longContent = new StringBuffer();
+        for (int i = 0; i < 40; i++) {
+            longContent.append("好多内容");
+        }
+        longContentTextView.setText(longContent.toString());
+        moreContentTextView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "当前行数：" + longContentTextView.getLineCount(), Toast.LENGTH_SHORT).show();
+                longContentTextView.setMaxLines(50);
+                moreContentTextView.setVisibility(View.GONE);
+            }
+        });
 
         // 时间显示
         final TextView timeTextView = (TextView) findViewById(R.id.timeTextView);
@@ -382,8 +385,6 @@ public class MainActivity extends Activity {
 
         // bar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST); // 下拉框模式ActionBar
 
-        fileName = (EditText) findViewById(R.id.fileName);
-        fileContent = (EditText) findViewById(R.id.fileContent);
         service = new SaveFileService(this);
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
@@ -558,6 +559,11 @@ public class MainActivity extends Activity {
                 menu.add(0, 3, 1, "333");
             }
         });
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
     }
 
     /**

@@ -70,29 +70,28 @@
                 android:textOff="隐藏"
                 android:textOn="显示" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/putInFileName" />
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/fileName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="fileName"
-                android:imeOptions="actionGo"
-                android:inputType="text" />
+                <TextView
+                    android:id="@+id/long_content_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/putInFileContent" />
-
-            <EditText
-                android:id="@+id/fileContent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="fileContent" />
+                <TextView
+                    android:id="@+id/more_content_textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/long_content_textView"
+                    android:text="更多"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:textSize="14sp" />
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/url_"
@@ -137,13 +136,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Go to Second" />
-
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="onSaveFile"
-                    android:text="SaveFile" />
 
                 <Button
                     android:layout_width="wrap_content"
