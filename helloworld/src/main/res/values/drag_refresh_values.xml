@@ -2,12 +2,12 @@
 <resources>
 
     <declare-styleable name="DragToReFreshLayout">
-        <attr name="column" format="integer" />
-        <attr name="divider" format="reference" />
-        <attr name="dividerHeight" format="dimension" />
-        <attr name="horizontalSpacing" format="dimension" />
-        <attr name="verticalSpacing" format="dimension" />
-        <attr name="type">
+        <attr name="dragColumn" format="integer" />
+        <attr name="dragDivider" format="reference" />
+        <attr name="dragDividerHeight" format="dimension" />
+        <attr name="dragHorizontalSpacing" format="dimension" />
+        <attr name="dragVerticalSpacing" format="dimension" />
+        <attr name="dragType">
             <enum name="listView" value="1" />
             <enum name="gridView" value="2" />
             <enum name="expandableListView" value="3" />

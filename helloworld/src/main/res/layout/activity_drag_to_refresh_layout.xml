@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        drag4fresh:type="expandableListView"
-        drag4fresh:divider="@drawable/listview_line" >
+        drag4fresh:dragDivider="@drawable/listview_line"
+        drag4fresh:dragType="expandableListView">
 
         <TextView
             android:id="@id/dragToReFresh_headView"
@@ -32,8 +32,7 @@
             android:layout_height="60dp"
             android:gravity="center"
             android:text="松开下拉刷新"
-            android:textSize="20sp" >
-        </TextView>
+            android:textSize="20sp" />
 
         <TextView
             android:id="@id/dragToReFresh_footView"
@@ -41,8 +40,7 @@
             android:layout_height="60dp"
             android:gravity="center"
             android:text="松开上拉刷新"
-            android:textSize="20sp" >
-        </TextView>
+            android:textSize="20sp" />
     </com.myAndroid.helloworld.customView.dragFresh.DragToReFreshView>
 
 </LinearLayout>

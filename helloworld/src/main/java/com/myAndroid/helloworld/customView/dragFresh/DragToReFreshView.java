@@ -296,12 +296,12 @@ public class DragToReFreshView extends LinearLayout {
         this.setOrientation(LinearLayout.VERTICAL);
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.DragToReFreshLayout);
-        final int type = typedArray.getInt(R.styleable.DragToReFreshLayout_type, LISTVIEW);
-        final int numColumns = typedArray.getInt(R.styleable.DragToReFreshLayout_column, LISTVIEW);
-        final int dividerId = typedArray.getResourceId(R.styleable.DragToReFreshLayout_divider, NO_DIVIDER_RES_ID);
-        final float dividerHeight = typedArray.getDimension(R.styleable.DragToReFreshLayout_dividerHeight, NO_DIVIDER_HEIGHT);
-        final float horizontalSpacing = typedArray.getDimension(R.styleable.DragToReFreshLayout_horizontalSpacing, NO_HORIZONTAL_SPACING);
-        final float verticalSpacing = typedArray.getDimension(R.styleable.DragToReFreshLayout_verticalSpacing, NO_VERTICAL_SPACING);
+        final int type = typedArray.getInt(R.styleable.DragToReFreshLayout_dragType, LISTVIEW);
+        final int numColumns = typedArray.getInt(R.styleable.DragToReFreshLayout_dragColumn, LISTVIEW);
+        final int dividerId = typedArray.getResourceId(R.styleable.DragToReFreshLayout_dragDivider, NO_DIVIDER_RES_ID);
+        final float dividerHeight = typedArray.getDimension(R.styleable.DragToReFreshLayout_dragDividerHeight, NO_DIVIDER_HEIGHT);
+        final float horizontalSpacing = typedArray.getDimension(R.styleable.DragToReFreshLayout_dragHorizontalSpacing, NO_HORIZONTAL_SPACING);
+        final float verticalSpacing = typedArray.getDimension(R.styleable.DragToReFreshLayout_dragVerticalSpacing, NO_VERTICAL_SPACING);
         typedArray.recycle();
 
         getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
