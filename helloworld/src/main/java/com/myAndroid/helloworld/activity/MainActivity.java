@@ -72,8 +72,6 @@ public class MainActivity extends Activity {
     private Notification notification;
     private NotificationManager notificationManager;
 
-    private EditText fileName;
-    private EditText fileContent;
     private Button button;
     private Button button2;
     private Button button4;
@@ -288,26 +286,6 @@ public class MainActivity extends Activity {
             }
         }, 0, 1, TimeUnit.SECONDS);
 
-        // ScrollView会拦截Activity的onTouch事件,所以为ScorllView的事件添加监听逻辑
-        ScrollView scrollView = (ScrollView) findViewById(R.id.main_scrollView);
-        scrollView.setOnTouchListener(new OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        inputMethodManager.hideSoftInputFromWindow(fileName.getWindowToken(), 0);
-
-                        break;
-                    default:
-                        break;
-                }
-
-                return false;// 若返回为true则丧失ScrollView原生的滑动效果
-            }
-        });
-
         ActionBar bar = getActionBar();
 
         // bar.setDisplayUseLogoEnabled(false);???
@@ -398,33 +376,14 @@ public class MainActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                try {
-                    service.saveFile(fileName.getText().toString(), fileContent.getText().toString());
-
-                    Toast.makeText(MainActivity.this, R.string.saveSuccess, Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(MainActivity.this, R.string.saveFail, Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(MainActivity.this, "保存文件逻辑已删除", Toast.LENGTH_LONG);
             }
         });
-        // 保存perference文件
+        // 保存文件
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                try {
-                    editor.putString("fileName", fileName.getText().toString());
-                    editor.putString("fileContent", fileContent.getText().toString());
-                    editor.commit();
-
-                    Toast.makeText(MainActivity.this, R.string.saveSuccess, Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-
-                    Toast.makeText(MainActivity.this, R.string.saveFail, Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(MainActivity.this, "保存文件逻辑已删除", Toast.LENGTH_LONG);
             }
         });
 
@@ -433,7 +392,7 @@ public class MainActivity extends Activity {
 
         // GridLayout gridLayout = (GridLayout) findViewById(R.id.gridlayout);
         // gridLayout.removeView(button2);//
-        // GridLayout的字View即使设置GONE也不会补位,需要调用removeView()方法将其删除
+        // GridLayout的子View即使设置GONE也不会补位,需要调用removeView()方法将其删除
 
         // 显示意图,并等待回值
         button4.setOnClickListener(new View.OnClickListener() {
