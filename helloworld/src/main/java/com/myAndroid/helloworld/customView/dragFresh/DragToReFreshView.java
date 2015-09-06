@@ -374,6 +374,13 @@ public class DragToReFreshView extends LinearLayout {
 
                         if (expandableListAdapter != null) {
                             ((DragToFreshExpandableListView) contentListView).setAdapter(expandableListAdapter);
+
+                            /**
+                             * 默认展开所有标签选项
+                             */
+                            for (int i = 0; i < expandableListAdapter.getGroupCount(); i++) {
+                                ((DragToFreshExpandableListView) contentListView).expandGroup(i);
+                            }
                         }
                     }
 
@@ -497,7 +504,7 @@ public class DragToReFreshView extends LinearLayout {
         }
 
 		/*
-		 * 复位相关动画
+         * 复位相关动画
 		 */
         if (null != headView && null != headView.getTag(R.id.firstY)) {
             headView.animate().setInterpolator(new LinearInterpolator()).y((Float) headView.getTag(R.id.firstY));
@@ -510,7 +517,7 @@ public class DragToReFreshView extends LinearLayout {
         contentListView.animate().setInterpolator(new LinearInterpolator()).y(0f);
 
 		/*
-		 * 重置各个标记位
+         * 重置各个标记位
 		 */
         canDrag = false;
         isRefreshing = false;
