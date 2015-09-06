@@ -1,5 +1,6 @@
 package com.myAndroid.helloworld.customView.dragFresh;
 
+import java.util.Arrays;
 import java.util.List;
 
 import android.app.Activity;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.google.common.collect.Lists;
 import com.myAndroid.helloworld.R;
+import com.myAndroid.helloworld.adapter.MyExpandableListAdapter;
 import com.myAndroid.helloworld.customView.dragFresh.DragToReFreshView.OnRefreshListener;
 
 public class DragToReFreshActivity extends Activity {
@@ -61,8 +63,17 @@ public class DragToReFreshActivity extends Activity {
 		setContentView(R.layout.activity_drag_to_refresh_layout);
 
 		BaseAdapter adapter = new MyBaseAdapter();
+
+		List<String> titles = Arrays.asList("动物", "水果", "英雄");
+		List<String> itemsA = Arrays.asList("老鼠", "豹子", "老陈");
+		List<String> itemsB = Arrays.asList("苹果", "香蕉");
+		List<String> itemsC = Arrays.asList("盖伦", "斧王", "翟江");
+
+		MyExpandableListAdapter expandableListAdapter = new MyExpandableListAdapter(this, titles, itemsA, itemsB, itemsC);
+
 		dragToFreshLayout = (DragToReFreshView) findViewById(R.id.dragToFreshListView);
-		dragToFreshLayout.setAdapter(adapter);
+//		dragToFreshLayout.setAdapter(adapter);
+		dragToFreshLayout.setExpandableListAdapter(expandableListAdapter);
 
 		/**
 		 * 下拉刷新监听

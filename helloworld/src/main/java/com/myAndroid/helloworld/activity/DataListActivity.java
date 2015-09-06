@@ -153,6 +153,8 @@ public class DataListActivity extends Activity {
         MyExpandableListAdapter adapter = new MyExpandableListAdapter(this, titles, itemsA, itemsB, itemsC);
 
         ExpandableListView exListView = (ExpandableListView) findViewById(R.id.exListView);
+        exListView.setSelector(R.color.listSelector);//去除item点击时，变换背景色的机制;也可以通过在xml布局文件中，设置listSelector:"#00000000"属性来实现
+        exListView.setGroupIndicator(null);//去除Group的指针图标;也可以通过在xml布局文件中，设置groupIndicator="@null"来实现
 
         exListView.setAdapter(adapter);
     }

@@ -5,10 +5,18 @@
         <attr name="column" format="integer" />
         <attr name="divider" format="reference" />
         <attr name="dividerHeight" format="dimension" />
+        <attr name="horizontalSpacing" format="dimension" />
+        <attr name="verticalSpacing" format="dimension" />
+        <attr name="type">
+            <enum name="listView" value="1" />
+            <enum name="gridView" value="2" />
+            <enum name="expandableListView" value="3" />
+        </attr>
     </declare-styleable>
 
-    <item name="dragToReFresh_headView" type="id"/>
-    <item name="dragToReFresh_footView" type="id"/>
-    <item name="firstY" type="id"/>
+    <item name="dragToReFresh_headView" type="id" />
+    <item name="dragToReFresh_footView" type="id" />
+    <item name="firstY" type="id" />
+    <color name="listSelector">#00000000</color>
 
 </resources>

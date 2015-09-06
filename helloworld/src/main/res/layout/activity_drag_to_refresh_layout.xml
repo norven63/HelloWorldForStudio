@@ -23,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        drag4fresh:type="expandableListView"
         drag4fresh:divider="@drawable/listview_line" >
 
         <TextView
@@ -33,7 +34,8 @@
             android:text="松开下拉刷新"
             android:textSize="20sp" >
         </TextView>
-        <TextView
+
+        <TextView
             android:id="@id/dragToReFresh_footView"
             android:layout_width="match_parent"
             android:layout_height="60dp"
