@@ -18,7 +18,6 @@ import android.widget.ListView;
 
 import com.myAndroid.helloworld.R;
 
-
 /**
  * 下拉刷新控件
  */
