@@ -54,7 +54,7 @@ public class DragToReFreshActivity extends Activity {
 		public int getCount() {
 			return dateSource.size();
 		}
-	};
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

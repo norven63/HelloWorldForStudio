@@ -14,9 +14,7 @@ import com.myAndroid.helloworld.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by Norven on 2015/8/24 0024.
- */
+
 public class GlideActivity extends Activity {
     @Bind(R.id.test_textView)
     TextView testTextView;
