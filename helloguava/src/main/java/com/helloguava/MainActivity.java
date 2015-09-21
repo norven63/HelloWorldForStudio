@@ -1,9 +1,14 @@
 package com.helloguava;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.common.io.Files;
 
@@ -23,7 +28,7 @@ import java.util.Date;
 
 public class MainActivity extends Activity {
     @butterknife.Bind(R.id.log_textView)
-    TextView logTextView; 
+    TextView logTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,30 +36,58 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         butterknife.ButterKnife.bind(this);
 
-        StringBuffer logBuffer = new StringBuffer();
+        HandlerThread handlerThread = new HandlerThread("Test BackGround");
+        handlerThread.start();
 
-        copyFile(logBuffer, "jpg");
-        logBuffer.append("\n\n");
-        copyFile(logBuffer, "txt");
+        new AsyncTask<String, String, String>() {
+            @Override
+            protected String doInBackground(String... params) {
+                AsyncTaskProgressListener a = new AsyncTaskProgressListener() {
+                    @Override
+                    public void onProgress(String progress) {
+                        publishProgress(progress);
+                    }
+                };
 
-        logTextView.setText(logBuffer.toString());
+                copyFile("jpg", a);
+                //copyFile(logBuffer, "txt");
+                //logBuffer.append("\n\n");
+                copyFile("mp4", a);
+
+                return "\n全部完成";
+            }
+
+            @Override
+            protected void onProgressUpdate(String... values) {
+                logTextView.setText(logTextView.getText() + values[0]);
+            }
+
+            @Override
+            protected void onPostExecute(String result) {
+                logTextView.setText(logTextView.getText()+result);
+            }
+        }.execute();
     }
 
-    private void copyFile(StringBuffer logBuffer, String fileType) {
+    private interface AsyncTaskProgressListener {
+        void onProgress(String progress);
+    }
+
+    private void copyFile(String fileType, AsyncTaskProgressListener listener) {
         Date start = new Date();
         copyFileUseNioMapped(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/nio." + fileType);
-        logBuffer.append(fileType + " - nio: " + (new Date().getTime() - start.getTime()) + "\n");
+        listener.onProgress("\n"+fileType + " - nio完成，耗时: " + (new Date().getTime() - start.getTime()) );
 
         start = new Date();
         copyFileUseBufferedStream(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/buffer." + fileType);
-        logBuffer.append(fileType + " - buffer: " + (new Date().getTime() - start.getTime()) + "\n");
+        listener.onProgress("\n"+fileType + " - buffer完成，耗时: " + (new Date().getTime() - start.getTime()));
 
         try {
             Files.copy(new File(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType), new File(Environment.getExternalStorageDirectory().getPath() + "/guava." + fileType));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        logBuffer.append(fileType + " - guava: " + (new Date().getTime() - start.getTime()) + "\n");
+        listener.onProgress("\n"+fileType + " - guava完成，耗时: " + (new Date().getTime() - start.getTime()) );
     }
 
     public static boolean copyFileUseNioMapped(final String resource, final String destination) {
