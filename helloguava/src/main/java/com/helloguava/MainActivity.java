@@ -23,7 +23,7 @@ import java.util.Date;
 
 public class MainActivity extends Activity {
     @butterknife.Bind(R.id.log_textView)
-    TextView logTextView;
+    TextView logTextView; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
