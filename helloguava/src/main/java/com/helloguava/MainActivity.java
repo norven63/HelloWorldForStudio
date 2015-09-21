@@ -4,11 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.common.io.Files;
 
@@ -36,9 +32,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         butterknife.ButterKnife.bind(this);
 
-        HandlerThread handlerThread = new HandlerThread("Test BackGround");
-        handlerThread.start();
-
         new AsyncTask<String, String, String>() {
             @Override
             protected String doInBackground(String... params) {
@@ -64,7 +57,7 @@ public class MainActivity extends Activity {
 
             @Override
             protected void onPostExecute(String result) {
-                logTextView.setText(logTextView.getText()+result);
+                logTextView.setText(logTextView.getText() + result);
             }
         }.execute();
     }
@@ -76,18 +69,18 @@ public class MainActivity extends Activity {
     private void copyFile(String fileType, AsyncTaskProgressListener listener) {
         Date start = new Date();
         copyFileUseNioMapped(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/nio." + fileType);
-        listener.onProgress("\n"+fileType + " - nio完成，耗时: " + (new Date().getTime() - start.getTime()) );
+        listener.onProgress("\n" + fileType + " - nio完成，耗时: " + (new Date().getTime() - start.getTime()));
 
         start = new Date();
         copyFileUseBufferedStream(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/buffer." + fileType);
-        listener.onProgress("\n"+fileType + " - buffer完成，耗时: " + (new Date().getTime() - start.getTime()));
+        listener.onProgress("\n" + fileType + " - buffer完成，耗时: " + (new Date().getTime() - start.getTime()));
 
         try {
             Files.copy(new File(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType), new File(Environment.getExternalStorageDirectory().getPath() + "/guava." + fileType));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        listener.onProgress("\n"+fileType + " - guava完成，耗时: " + (new Date().getTime() - start.getTime()) );
+        listener.onProgress("\n" + fileType + " - guava完成，耗时: " + (new Date().getTime() - start.getTime()));
     }
 
     public static boolean copyFileUseNioMapped(final String resource, final String destination) {
