@@ -1,5 +1,6 @@
 package com.helloguava;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     @butterknife.Bind(R.id.log_textView)
     TextView logTextView;
 
@@ -43,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void copyFile(StringBuffer logBuffer, String fileType) {
         Date start = new Date();
-
-        start = new Date();
         copyFileUseNioMapped(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/nio." + fileType);
         logBuffer.append(fileType + " - nio: " + (new Date().getTime() - start.getTime()) + "\n");
 
