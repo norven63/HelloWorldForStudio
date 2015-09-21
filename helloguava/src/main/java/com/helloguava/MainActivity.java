@@ -33,24 +33,31 @@ public class MainActivity extends AppCompatActivity {
         butterknife.ButterKnife.bind(this);
 
         StringBuffer logBuffer = new StringBuffer();
+
+        copyFile(logBuffer, "jpg");
+        logBuffer.append("\n\n");
+        copyFile(logBuffer, "txt");
+
+        logTextView.setText(logBuffer.toString());
+    }
+
+    private void copyFile(StringBuffer logBuffer, String fileType) {
         Date start = new Date();
 
         start = new Date();
-        copyFileUseNioMapped(Environment.getExternalStorageDirectory().getPath() + "/test.jpg", Environment.getExternalStorageDirectory().getPath() + "/nio.jpg");
-        logBuffer.append("nio: " + (new Date().getTime() - start.getTime()) + "\n");
+        copyFileUseNioMapped(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/nio." + fileType);
+        logBuffer.append(fileType + " - nio: " + (new Date().getTime() - start.getTime()) + "\n");
 
         start = new Date();
-        copyFileUseBufferedStream(Environment.getExternalStorageDirectory().getPath() + "/test.jpg", Environment.getExternalStorageDirectory().getPath() + "/buffer.jpg");
-        logBuffer.append("buffer: " + (new Date().getTime() - start.getTime()) + "\n");
+        copyFileUseBufferedStream(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType, Environment.getExternalStorageDirectory().getPath() + "/buffer." + fileType);
+        logBuffer.append(fileType + " - buffer: " + (new Date().getTime() - start.getTime()) + "\n");
 
         try {
-            Files.copy(new File(Environment.getExternalStorageDirectory().getPath() + "/test.jpg"), new File(Environment.getExternalStorageDirectory().getPath() + "/guava.jpg"));
+            Files.copy(new File(Environment.getExternalStorageDirectory().getPath() + "/test." + fileType), new File(Environment.getExternalStorageDirectory().getPath() + "/guava." + fileType));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        logBuffer.append("guava: " + (new Date().getTime() - start.getTime()) + "\n");
-
-
+        logBuffer.append(fileType + " - guava: " + (new Date().getTime() - start.getTime()) + "\n");
     }
 
     public static boolean copyFileUseNioMapped(final String resource, final String destination) {
