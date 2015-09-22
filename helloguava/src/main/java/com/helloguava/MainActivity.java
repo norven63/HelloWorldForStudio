@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.common.io.Files;
 
@@ -22,15 +24,27 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Date;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MainActivity extends Activity {
-    @butterknife.Bind(R.id.log_textView)
+    @Bind(R.id.log_textView)
     TextView logTextView;
+    @Bind(R.id.calendarView)
+    CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        butterknife.ButterKnife.bind(this);
+        ButterKnife.bind(this);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                Toast.makeText(MainActivity.this, year + "年" + (month + 1) + "月" + dayOfMonth + "日" + "\nTime: " + view.getDate(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         new AsyncTask<String, String, String>() {
             @Override
