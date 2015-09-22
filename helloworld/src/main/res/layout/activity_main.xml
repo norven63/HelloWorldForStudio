@@ -1,6 +1,7 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:gridlayouts="http://schemas.android.com/apk/res-auto"
+<ScrollView
     android:id="@+id/main_scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gridlayouts="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
@@ -18,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                gridlayouts:testattr="2" />
+                gridlayouts:testattr="2"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
                 android:background="@null"
                 android:text="碰我换色"
                 android:textColor="@color/selector_textview_text_color"
-                android:textSize="35sp" />
+                android:textSize="35sp"/>
 
             <Button
                 android:id="@+id/changeBar"
@@ -35,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
-                android:text="长按以显示菜单" />
+                android:text="长按以显示菜单"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -43,7 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="20dp"
                 android:onClick="showToastWithImage"
-                android:text="显示带图片的Toast" />
+                android:text="显示带图片的Toast"/>
 
             <TextView
                 android:id="@+id/timeTextView"
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/holo_red_light"
                 android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <ToggleButton
                 android:id="@+id/togglebutton"
@@ -59,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:textOff="删除"
-                android:textOn="下载" />
+                android:textOn="下载"/>
 
             <Switch
                 android:id="@+id/switchButton"
@@ -68,7 +69,7 @@
                 android:layout_marginBottom="20dp"
                 android:checked="false"
                 android:textOff="隐藏"
-                android:textOn="显示" />
+                android:textOn="显示"/>
 
             <RelativeLayout
                 android:layout_width="300dp"
@@ -80,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"/>
 
                 <TextView
                     android:id="@+id/more_content_textView"
@@ -90,7 +91,7 @@
                     android:layout_below="@id/long_content_textView"
                     android:text="更多"
                     android:textColor="@android:color/holo_blue_bright"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"/>
             </RelativeLayout>
 
             <TextView
@@ -99,12 +100,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
-                android:text="www.baidu.com" />
+                android:text="www.baidu.com"/>
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <GridLayout
                 android:id="@+id/gridlayout"
@@ -117,234 +118,241 @@
                     android:id="@+id/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="doSaveFile" />
+                    android:text="doSaveFile"/>
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="doSavePre" />
+                    android:text="doSavePre"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="notification"
-                    android:text="消息栏" />
+                    android:text="消息栏"/>
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Go to Second" />
+                    android:text="Go to Second"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.DataListActivity"
-                    android:text="ListView" />
+                    android:text="ListView"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroidp[1.helloworld.activity.GridViewActivity"
-                    android:text="GridView" />
+                    android:text="GridView"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.PopupwindowOnLeftActivity"
-                    android:text="弹出框" />
+                    android:text="弹出框"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.SendMessageActivity"
-                    android:text="sendMessage" />
+                    android:text="sendMessage"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.SlidingDrawerActivity"
-                    android:text="滑动效果" />
+                    android:text="滑动效果"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.DownloadManagerActivity"
-                    android:text="downloadmanager" />
+                    android:text="downloadmanager"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.ImageViewActivity"
-                    android:text="ImageView" />
+                    android:text="ImageView"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.WebViewActivity"
-                    android:text="WebView" />
+                    android:text="WebView"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="openLink"
-                    android:text="超链接" />
+                    android:text="超链接"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.SendOrderReceiverActivity"
-                    android:text="有序广播" />
+                    android:text="有序广播"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.SearchActivity"
-                    android:text="搜索栏" />
+                    android:text="搜索栏"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.MyPreferenceActivity"
-                    android:text="首选项示例" />
+                    android:text="首选项示例"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.GestureImageViewActivity"
-                    android:text="开源:缩放图片" />
+                    android:text="开源:缩放图片"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.ScaleImageViewActivity"
-                    android:text="缩放图片" />
+                    android:text="缩放图片"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.FloatWindowActivity"
-                    android:text="悬浮窗" />
+                    android:text="悬浮窗"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.ViewMoveActivity"
-                    android:text="移动图片" />
+                    android:text="移动图片"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.luncher_demo.LuncherDemoActivity"
-                    android:text="Luncher仿真" />
+                    android:text="Luncher仿真"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.ViewPagerActivity"
-                    android:text="ViewPager" />
+                    android:text="ViewPager"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.IntentActivity"
-                    android:text="分享功能" />
+                    android:text="分享功能"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.ImageSwitcherActivity"
-                    android:text="ImageSwitcher" />
+                    android:text="ImageSwitcher"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.startActivityByBrowser.WebViewLuncherActivity"
-                    android:text="浏览器启动Activity" />
+                    android:text="浏览器启动Activity"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.AlarmActivity"
-                    android:text="AlarmManager" />
+                    android:text="AlarmManager"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.customView.dragFresh.DragToReFreshActivity"
-                    android:text="下拉刷新" />
+                    android:text="下拉刷新"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.SwipeRefreshActivity"
-                    android:text="官方下拉刷新" />
+                    android:text="官方下拉刷新"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.ScreenShotActivity"
-                    android:text="截屏" />
+                    android:text="截屏"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.DeviceInfoActivity"
-                    android:text="获取设备信息" />
+                    android:text="获取设备信息"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.FacebookDemoActivity"
-                    android:text="Facebook测试" />
+                    android:text="Facebook测试"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.GsonDemo.GsonDemoActivity"
-                    android:text="Gson测试" />
+                    android:text="Gson测试"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.LocationActivity"
-                    android:text="位置技术" />
+                    android:text="位置技术"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.GlideActivity"
-                    android:text="Glide图片墙" />
+                    android:text="Glide图片墙"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.CalendarViewActivity"
+                    android:text="系统日期控件"/>
             </GridLayout>
         </LinearLayout>
     </HorizontalScrollView>

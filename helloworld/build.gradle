@@ -6,8 +6,8 @@ android {
             storeFile file('D:/Android Studio/debug.keystore')
         }
     }
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
     defaultConfig {
         applicationId "com.norven.helloworld.helloworld"
         minSdkVersion 17
