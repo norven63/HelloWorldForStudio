@@ -89,10 +89,7 @@ public class MainActivity extends Activity {
             // 注意这里Builder的用法,设定了很多Notification的属性,而其中setContent(RemoteView)可以使你用一个自定义的布局来填充Notification(此方法并未例句出来,因为会覆盖这之前所有的显示设置)
             RemoteViews remoteViews = new RemoteViews(MainActivity.this.getPackageName(), R.layout.mynotification);
 
-            notification = new Notification.Builder(this).setContentText("Hello World!").setContentTitle("Hello")
-                    .setSmallIcon(R.drawable.ic_launcher).setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.image_view2))
-                    .setContentIntent(pendingIntent).setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS).setTicker("Come on!Baby!")
-                    .build();
+            notification = new Notification.Builder(this).setContentText("Hello World!").setContentTitle("Hello").setSmallIcon(R.drawable.ic_launcher).setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.image_view2)).setContentIntent(pendingIntent).setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS).setTicker("Come on!Baby!").build();
             notification.flags |= Notification.FLAG_AUTO_CANCEL;
 
             notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -126,8 +123,7 @@ public class MainActivity extends Activity {
         View view = layoutInflater.inflate(R.layout.actionbar_item_view, null);
         RelativeLayout relativeLayout = (RelativeLayout) view.findViewById(R.id.actionBarItemLayout);
 
-        relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT));
+        relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
         final TextView newTextView = new TextView(this);
         ColorStateList colorStateList = getResources().getColorStateList(R.color.white);
         newTextView.setText("M1-ActionView");
@@ -139,8 +135,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        RelativeLayout.LayoutParams rLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams rLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         // rLayoutParams.addRule(RelativeLayout.RIGHT_OF,
         // textView.getId());//设置rgithOf属性,其他的可举一反三
         relativeLayout.addView(newTextView, rLayoutParams);
@@ -287,11 +282,10 @@ public class MainActivity extends Activity {
         View view = layoutInflater.inflate(R.layout.actionbar_view, null);
         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.actionBarLayout);
 
-        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
+        linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
         final TextView newTextView1 = new TextView(this);
-//        newTextView1.setId(1993);
+        //        newTextView1.setId(1993);
         ColorStateList colorStateList = getResources().getColorStateList(R.color.white);
         newTextView1.setText("/ActionBar1");
         newTextView1.setTextColor(colorStateList);
@@ -302,8 +296,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        LinearLayout.LayoutParams rLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams rLayoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         linearLayout.addView(newTextView1, rLayoutParams);
 
         final TextView newTextView = new TextView(this);
@@ -326,24 +319,23 @@ public class MainActivity extends Activity {
         for (int i = 0; i < 4; i++) {
             final int ii = i;
             Tab tab = bar.newTab();
-            tab.setText("Tab-" + i).setIcon(R.drawable.ic_launcher).setContentDescription("标签:" + i)
-                    .setTabListener(new TabListener() {
+            tab.setText("Tab-" + i).setIcon(R.drawable.ic_launcher).setContentDescription("标签:" + i).setTabListener(new TabListener() {
 
-                        @Override
-                        public void onTabReselected(Tab tab, FragmentTransaction ft) {
-                            Toast.makeText(MainActivity.this, "onTabReselected-" + ii, Toast.LENGTH_SHORT).show();
-                        }
+                @Override
+                public void onTabReselected(Tab tab, FragmentTransaction ft) {
+                    Toast.makeText(MainActivity.this, "onTabReselected-" + ii, Toast.LENGTH_SHORT).show();
+                }
 
-                        @Override
-                        public void onTabSelected(Tab tab, FragmentTransaction ft) {
-                            Toast.makeText(MainActivity.this, "onTabSelected-" + ii, Toast.LENGTH_SHORT).show();
-                        }
+                @Override
+                public void onTabSelected(Tab tab, FragmentTransaction ft) {
+                    Toast.makeText(MainActivity.this, "onTabSelected-" + ii, Toast.LENGTH_SHORT).show();
+                }
 
-                        @Override
-                        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-                            Toast.makeText(MainActivity.this, "onTabUnselected-" + ii, Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                @Override
+                public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+                    Toast.makeText(MainActivity.this, "onTabUnselected-" + ii, Toast.LENGTH_SHORT).show();
+                }
+            });
 
             if (0 == i) {
                 bar.addTab(tab, true);

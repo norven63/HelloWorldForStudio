@@ -132,12 +132,13 @@
         <activity android:name=".activity.LocationActivity"/>
         <activity android:name=".activity.GridViewActivity"/>
         <activity android:name=".activity.GlideActivity"/>
-        <activity android:name=".activity.CalendarViewActivity"/>
         <activity android:name=".activity.ScreenShotActivity"/>
 
         <activity android:name=".luncher_demo.LuncherDemoActivity"/>
         <activity android:name=".customView.dragFresh.DragToReFreshActivity"/>
         <activity android:name=".activity.GsonDemo.GsonDemoActivity"/>
+        <activity
+            android:name=".activity.CalendarViewActivity"/>
         <activity android:name=".activity.startActivityByBrowser.WebViewLuncherActivity"/>
         <activity android:name=".activity.startActivityByBrowser.StartByBrowserActivity">
             <intent-filter>

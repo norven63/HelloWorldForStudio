@@ -2,6 +2,7 @@ package com.myAndroid.helloworld.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.Toast;
 
@@ -21,6 +22,13 @@ public class CalendarViewActivity extends Activity {
         setContentView(R.layout.activity_calendar_view);
         ButterKnife.bind(this);
 
+        calendarView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CalendarViewActivity.this, calendarView.getDate() + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+        calendarView.setShowWeekNumber(false);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {

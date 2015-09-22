@@ -10,7 +10,7 @@ android {
     buildToolsVersion "23.0.1"
     defaultConfig {
         applicationId "com.norven.helloworld.helloworld"
-        minSdkVersion 17
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -27,6 +27,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.google.guava:guava:18.0'
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
