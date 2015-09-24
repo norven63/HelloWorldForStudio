@@ -8,12 +8,16 @@ import android.widget.Toast;
 
 import com.myAndroid.helloworld.R;
 
+import java.util.Date;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CalendarViewActivity extends Activity {
     @Bind(R.id.calendarView)
     CalendarView calendarView;
+
+    private long currentSelectedTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +26,16 @@ public class CalendarViewActivity extends Activity {
         setContentView(R.layout.activity_calendar_view);
         ButterKnife.bind(this);
 
-        calendarView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(CalendarViewActivity.this, calendarView.getDate() + "", Toast.LENGTH_SHORT).show();
-            }
-        });
+        currentSelectedTime = calendarView.getDate();
         calendarView.setShowWeekNumber(false);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                if (view.getDate() == currentSelectedTime) {
+                    return;
+                }
+                currentSelectedTime = view.getDate();
+
                 Toast.makeText(CalendarViewActivity.this, year + "年" + (month + 1) + "月" + dayOfMonth + "日" + "\nTime: " + view.getDate(), Toast.LENGTH_SHORT).show();
             }
         });

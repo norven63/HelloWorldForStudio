@@ -31,6 +31,7 @@ import android.view.View.OnCreateContextMenuListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -473,25 +474,18 @@ public class MainActivity extends Activity {
             }
         });
 
-        View changeBar = findViewById(R.id.changeBar);
-        // changeBar.setOnLongClickListener(new OnLongClickListener() {
-        // @Override
-        // public boolean onLongClick(View v) {
-        // barMenu.clear();
-        // MenuItem menuItem = barMenu.add(0, 0, 0, "new MenuItem");
-        // menuItem.setIcon(R.drawable.icn_slidingdraw);
-        // menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        // return true;
-        // }
-        // });
+        Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        LinearInterpolator lin = new LinearInterpolator();
+        rotateAnimation.setInterpolator(lin);
+        findViewById(R.id.progress_bar).startAnimation(rotateAnimation);
 
+        View changeBar = findViewById(R.id.changeBar);
         changeBar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 onCreateOptionsMenu(barMenu);
             }
         });
-
         changeBar.setOnCreateContextMenuListener(new OnCreateContextMenuListener() {
             @Override
             public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
