@@ -18,8 +18,12 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@android:color/darker_gray">
+                android:layout_gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_progressbar_bg"/>
 
                 <ImageView
                     android:id="@+id/progress_bar"
@@ -281,6 +285,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.AnimationActivity"
+                    android:text="动画相关"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.IntentActivity"
                     android:text="分享功能"/>
 
@@ -367,6 +378,13 @@
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.CalendarViewActivity"
                     android:text="系统日期控件"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.WeiXinChatActivity"
+                    android:text="模仿微信聊天缩放"/>
             </GridLayout>
         </LinearLayout>
     </HorizontalScrollView>

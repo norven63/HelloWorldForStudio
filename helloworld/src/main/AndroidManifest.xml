@@ -133,6 +133,8 @@
         <activity android:name=".activity.GridViewActivity"/>
         <activity android:name=".activity.GlideActivity"/>
         <activity android:name=".activity.ScreenShotActivity"/>
+        <activity android:name=".activity.WeiXinChatActivity"/>
+        <activity android:name=".activity.AnimationActivity"/>
 
         <activity android:name=".luncher_demo.LuncherDemoActivity"/>
         <activity android:name=".customView.dragFresh.DragToReFreshActivity"/>
