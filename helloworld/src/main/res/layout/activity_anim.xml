@@ -1,14 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <View
         android:id="@+id/rotate"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_margin="35dp"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"/>
 
     <TextView
         android:id="@+id/rotationY"
@@ -20,13 +20,21 @@
         android:gravity="center"
         android:text="神"
         android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <View
         android:id="@+id/scale"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:background="@android:color/holo_red_dark" />
+        android:background="@android:color/holo_red_dark"/>
+
+    <View
+        android:id="@+id/translate"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/scale"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/holo_red_dark"/>
 
 </RelativeLayout>
