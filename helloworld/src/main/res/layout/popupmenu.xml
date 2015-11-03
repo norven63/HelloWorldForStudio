@@ -1,25 +1,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:alpha="0.6"
-    android:background="@color/gray"
-    android:orientation="vertical" >
+              android:layout_width="600dp"
+              android:layout_height="500dp"
+              android:background="@color/gray"
+              android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="神奇啊!弹出窗口!"
-        android:textColor="@android:color/white" >
+        android:textColor="@android:color/white">
     </TextView>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="好神奇的按钮!"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>

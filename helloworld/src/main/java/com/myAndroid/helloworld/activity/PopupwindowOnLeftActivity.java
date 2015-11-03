@@ -3,11 +3,13 @@ package com.myAndroid.helloworld.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.PopupMenu;
@@ -34,10 +36,10 @@ public class PopupwindowOnLeftActivity extends Activity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menuItem1:
+                    case R.id.action_new:
                         Toast.makeText(PopupwindowOnLeftActivity.this, "menuItem1被点击了", Toast.LENGTH_SHORT).show();
                         break;
-                    case R.id.menuItem2:
+                    case R.id.action_overflow:
                         Toast.makeText(PopupwindowOnLeftActivity.this, "menuItem2被点击了", Toast.LENGTH_SHORT).show();
                         break;
                     default:
@@ -80,8 +82,7 @@ public class PopupwindowOnLeftActivity extends Activity {
         // 获取自定义布局文件pop.xml的视图
         View popupWindow_view = getLayoutInflater().inflate(R.layout.popupmenu, null, false);
 
-        // 创建PopupWindow实例,100,220分别是宽度和高度,并将视图放入
-        popupWindow = new PopupWindow(popupWindow_view, 220, 220, true);// 这个true表示弹出框会focus，导致它出现后其他控件无法点击
+        popupWindow = new PopupWindow(popupWindow_view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);// 这个true表示弹出框会focus，导致它出现后其他控件无法点击
         popupWindow.setOutsideTouchable(true);
         // 点击其他地方消失
         popupWindow_view.setOnTouchListener(new OnTouchListener() {
@@ -112,8 +113,7 @@ public class PopupwindowOnLeftActivity extends Activity {
     public void showDialogFromBottom(View view) {
         AlertDialog dialog = new AlertDialog.Builder(this).create();
         Window window = dialog.getWindow();
-//    window.setGravity(Gravity.BOTTOM);  //此处可以设置dialog显示的位置
-        window.setWindowAnimations(R.style.dialog_in);  //添加动画
+        window.setGravity(Gravity.BOTTOM);  //此处可以设置dialog显示的位置
         dialog.show();
         dialog.setContentView(R.layout.dialog_show_form_bottom);
     }
