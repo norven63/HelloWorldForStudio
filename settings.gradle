@@ -1,1 +1,1 @@
-include ':helloworld', ':helloguava'
+include ':helloworld', ':helloguava', ':sample'
