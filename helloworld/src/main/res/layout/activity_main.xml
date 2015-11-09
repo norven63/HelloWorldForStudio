@@ -40,15 +40,6 @@
                 gridlayouts:testattr="2"/>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@null"
-                android:text="碰我换色"
-                android:textColor="@color/selector_textview_text_color"
-                android:textSize="35sp"/>
-
-            <Button
                 android:id="@+id/changeBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

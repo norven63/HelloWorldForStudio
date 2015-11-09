@@ -17,7 +17,7 @@
             app:cpb_textComplete="@string/Complete"
             app:cpb_textError="@string/Error"
             app:cpb_textIdle="@string/Upload"
-            app:cpb_selectorIdle="@drawable/selector_button_blue"
+            app:cpb_selectorIdle="@drawable/idle_state_selector"
             app:cpb_selectorComplete="@drawable/complete_state_selector"
             app:cpb_selectorError="@drawable/error_state_selector"/>
 
