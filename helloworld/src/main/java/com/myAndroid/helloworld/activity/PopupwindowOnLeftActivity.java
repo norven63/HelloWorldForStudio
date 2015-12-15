@@ -69,7 +69,7 @@ public class PopupwindowOnLeftActivity extends Activity {
                 popupWindow.showAsDropDown(findViewById(R.id.popWindow));
                 // 这里可以尝试其它效果方式,如popupWindow.showAsDropDown(v,
                 // (screenWidth-dialgoWidth)/2, 0);
-                // popupWindow.showAtLocation(findViewById(R.id.layout),
+                // popupWindow.showAtLocation(findViewById(R.id.test_layout),
                 // Gravity.CENTER, 0);
             }
         });

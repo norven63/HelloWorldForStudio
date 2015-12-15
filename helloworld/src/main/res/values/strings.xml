@@ -31,8 +31,8 @@
         <item>3</item>
     </string-array>
 
-    <item name="timer" type="id"/>
-    <item name="isMove" type="id"/>
-    <item name="bg" type="id"/>
-    <item name="window_X" type="id"/>
+    <item name="timer" type="id" />
+    <item name="isMove" type="id" />
+    <item name="bg" type="id" />
+    <item name="window_X" type="id" />
 </resources>

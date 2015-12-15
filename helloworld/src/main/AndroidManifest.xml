@@ -1,33 +1,33 @@
-<manifest
-    package="com.myAndroid.helloworld"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.myAndroid.helloworld">
 
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 申请自定义的权限 -->
-    <uses-permission android:name="com.myAndroid.hellorld.orderReceiver.permission"/>
+    <uses-permission android:name="com.myAndroid.hellorld.orderReceiver.permission" />
     <!-- 声明自定义的权限 -->
-    <permission android:name="com.myAndroid.hellorld.orderReceiver.permission"/>
+    <permission android:name="com.myAndroid.hellorld.orderReceiver.permission" />
 
     <application
-        android:name="MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <provider
             android:name=".provider.MyContentProvider"
-            android:authorities="com.myAndroid.helloworld.provider"/>
+            android:authorities="com.myAndroid.helloworld.provider" />
 
         <receiver android:name=".receiver.BootCompleteReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
         <!-- 此处的permission需要事先声明并申请 -->
@@ -37,7 +37,7 @@
             <intent-filter>
                 <action
                     android:name="com.myAndroid.hellorld.orderReceiver.action"
-                    android:priority="100"/>
+                    android:priority="100" />
             </intent-filter>
         </receiver>
         <receiver
@@ -46,7 +46,7 @@
             <intent-filter>
                 <action
                     android:name="com.myAndroid.hellorld.orderReceiver.action"
-                    android:priority="50"/>
+                    android:priority="50" />
             </intent-filter>
         </receiver>
         <receiver
@@ -55,31 +55,31 @@
             <intent-filter>
                 <action
                     android:name="com.myAndroid.hellorld.orderReceiver.action"
-                    android:priority="20"/>
+                    android:priority="20" />
             </intent-filter>
         </receiver>
         <receiver android:name=".receiver.MyWidget">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
             <intent-filter>
-                <action android:name="myAndroid.helloworld.receiver.MYWIDGET_BORADCAST_ic001"/>
+                <action android:name="myAndroid.helloworld.receiver.MYWIDGET_BORADCAST_ic001" />
             </intent-filter>
             <intent-filter>
-                <action android:name="myAndroid.helloworld.receiver.MYWIDGET_BORADCAST_ic_launcher"/>
+                <action android:name="myAndroid.helloworld.receiver.MYWIDGET_BORADCAST_ic_launcher" />
             </intent-filter>
 
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/mywidget_provider"/>
+                android:resource="@xml/mywidget_provider" />
         </receiver>
 
-        <service android:name=".service.LockScreenService"/>
-        <service android:name=".service.SendMessageService"/>
-        <service android:name=".service.TestService"/>
+        <service android:name=".service.LockScreenService" />
+        <service android:name=".service.SendMessageService" />
+        <service android:name=".service.TestService" />
         <service
             android:name=".service.MyRemoteViewService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <!-- android:uiOptions="splitActionBarWhenNarrow"使ActionBar拆分,显示于屏幕下方 -->
         <activity
@@ -87,9 +87,9 @@
             android:label="@string/app_name"
             android:uiOptions="splitActionBarWhenNarrow">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
@@ -99,77 +99,89 @@
 
             <!-- 以下是隐式调用的intent-filter设置规范 -->
             <intent-filter>
-                <action android:name="com.myAndroid.helloworld.second"/>
+                <action android:name="com.myAndroid.helloworld.second" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.ALTERNATIVE"/>
-                <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.SearchActivity"/>
-        <activity android:name=".activity.ViewMoveActivity"/>
-        <activity android:name=".activity.SendOrderReceiverActivity"/>
-        <activity android:name=".activity.ThirdActivity"/>
-        <activity android:name=".activity.DataListActivity"/>
-        <activity android:name=".activity.PopupwindowOnLeftActivity"/>
-        <activity android:name=".activity.SendMessageActivity"/>
-        <activity android:name=".activity.SlidingDrawerActivity"/>
-        <activity android:name=".activity.DownloadManagerActivity"/>
-        <activity android:name=".activity.ImageViewActivity"/>
-        <activity android:name=".activity.WebViewActivity"/>
-        <activity android:name=".activity.MyPreferenceActivity"/>
-        <activity android:name=".activity.ViewPagerActivity"/>
-        <activity android:name=".activity.ScaleImageViewActivity"/>
-        <activity android:name=".activity.FloatWindowActivity"/>
-        <activity android:name=".activity.GestureImageViewActivity"/>
-        <activity android:name=".activity.ImageSwitcherActivity"/>
-        <activity android:name=".activity.AlarmActivity"/>
-        <activity android:name=".activity.LockScreenActivity"/>
-        <activity android:name=".activity.SwipeRefreshActivity"/>
-        <activity android:name=".activity.DeviceInfoActivity"/>
-        <activity android:name=".activity.FacebookDemoActivity"/>
-        <activity android:name=".activity.LocationActivity"/>
-        <activity android:name=".activity.GridViewActivity"/>
-        <activity android:name=".activity.GlideActivity"/>
-        <activity android:name=".activity.ScreenShotActivity"/>
-        <activity android:name=".activity.AnimationActivity"/>
-        <activity android:name=".activity.GsonDemo.GsonDemoActivity"/>
-        <activity android:name=".activity.CalendarViewActivity"/>
-        <activity android:name=".activity.WeiXinChatActivity"/>
-        <activity android:name=".activity.startActivityByBrowser.WebViewLuncherActivity"/>
-        <activity android:name=".luncher_demo.LuncherDemoActivity"/>
-        <activity android:name=".customView.dragFresh.DragToReFreshActivity"/>
-
         <activity android:name=".activity.startActivityByBrowser.StartByBrowserActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="hello"/>
+                <data android:scheme="hello" />
             </intent-filter>
         </activity>
-
         <activity android:name=".activity.IntentActivity">
             <intent-filter android:label="啦啦~">
-                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND" />
 
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.DEFAULT" />
 
-                <data android:mimeType="text/plain"/>
-                <data android:mimeType="image/*"/>
+                <data android:mimeType="text/plain" />
+                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
-            android:value="\0263369313848851"/>
+            android:value="\0263369313848851" />
+
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name=".service.AidlService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":myAidl">
+            <intent-filter>
+                <action android:name="helloworld.demo.adilService" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.ViewMoveActivity" />
+        <activity android:name=".activity.SendOrderReceiverActivity" />
+        <activity android:name=".activity.ThirdActivity" />
+        <activity android:name=".activity.DataListActivity" />
+        <activity android:name=".activity.PopupwindowOnLeftActivity" />
+        <activity android:name=".activity.SendMessageActivity" />
+        <activity android:name=".activity.SlidingDrawerActivity" />
+        <activity android:name=".activity.DownloadManagerActivity" />
+        <activity android:name=".activity.ImageViewActivity" />
+        <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.MyPreferenceActivity" />
+        <activity android:name=".activity.ViewPagerActivity" />
+        <activity android:name=".activity.ScaleImageViewActivity" />
+        <activity android:name=".activity.FloatWindowActivity" />
+        <activity android:name=".activity.GestureImageViewActivity" />
+        <activity android:name=".activity.ImageSwitcherActivity" />
+        <activity android:name=".activity.AlarmActivity" />
+        <activity android:name=".activity.LockScreenActivity" />
+        <activity android:name=".activity.SwipeRefreshActivity" />
+        <activity android:name=".activity.DeviceInfoActivity" />
+        <activity android:name=".activity.FacebookDemoActivity" />
+        <activity android:name=".activity.LocationActivity" />
+        <activity android:name=".activity.GridViewActivity" />
+        <activity android:name=".activity.GlideActivity" />
+        <activity android:name=".activity.ScreenShotActivity" />
+        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.GsonDemo.GsonDemoActivity" />
+        <activity android:name=".activity.CalendarViewActivity" />
+        <activity android:name=".activity.WeiXinChatActivity" />
+        <activity android:name=".activity.startActivityByBrowser.WebViewLuncherActivity" />
+        <activity android:name=".luncher_demo.LuncherDemoActivity" />
+        <activity android:name=".customView.dragFresh.DragToReFreshActivity" />
+        <activity android:name=".activity.DrawerLayoutActivity" />
+        <activity android:name=".activity.AidlServiceActivity"></activity>
     </application>
+
 </manifest>

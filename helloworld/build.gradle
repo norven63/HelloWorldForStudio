@@ -6,12 +6,12 @@ android {
             storeFile file('D:/Android Studio/debug.keystore')
         }
     }
-    compileSdkVersion 21
+    compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
         applicationId "com.norven.helloworld.helloworld"
         minSdkVersion 15
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
@@ -22,16 +22,26 @@ android {
         }
     }
     productFlavors {
+        myDemoA {
+            applicationId "your.application.myDemoA.id"
+            versionName "2.0.0"
+        }
+
+        myDemoB {
+            applicationId "your.application.myDemoB.id"
+            versionName "3.0.0"
+        }
     }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:21.0.0'
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.google.code.gson:gson:2.4'
     compile 'com.google.guava:guava:18.0'
     compile 'com.github.chrisbanes.photoview:library:1.2.3'
     compile 'com.facebook.android:facebook-android-sdk:4.0.0'
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile 'com.jakewharton:butterknife:7.0.0'
+    compile 'com.android.support:multidex:1.0.1'
 }
