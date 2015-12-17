@@ -138,7 +138,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <service
-            android:name=".service.AidlService"
+            android:name=".service.aidl.AidlService"
             android:enabled="true"
             android:exported="true"
             android:process=":myAidl">

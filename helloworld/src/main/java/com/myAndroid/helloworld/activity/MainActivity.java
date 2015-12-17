@@ -2,22 +2,16 @@ package com.myAndroid.helloworld.activity;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.app.ActionBar.Tab;
-import android.app.ActionBar.TabListener;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.util.Linkify;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.KeyEvent;
@@ -47,30 +41,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.myAndroid.helloworld.R;
-import com.myAndroid.helloworld.service.SaveFileService;
-
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 @SuppressLint({"NewApi", "InflateParams"})
 public class MainActivity extends Activity {
     private final static int NOTIFICATION_ID = 1;
+    @Bind(R.id.link_url)
+    TextView linkUrl;
+    @Bind(R.id.spinner)
+    Spinner spinner;
+    @Bind(R.id.button4)
+    Button button4;
+
     private Notification notification;
     private NotificationManager notificationManager;
 
-    private Button button;
-    private Button button2;
-    private Button button4;
-    private Spinner spinner;
-    private SaveFileService service;
-    private SharedPreferences spf;
-    private Editor editor;
     private Menu barMenu;
 
     public void IntentManager(View view) {
@@ -217,11 +210,6 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    @SuppressLint("ResourceAsColor")
-    public void openLink(View view) {
-        Linkify.addLinks((TextView) findViewById(R.id.url_), Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -239,6 +227,16 @@ public class MainActivity extends Activity {
         // getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        linkUrl.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Linkify.addLinks((TextView) findViewById(R.id.link_url), Linkify.WEB_URLS | Linkify.EMAIL_ADDRESSES);
+
+                return false;
+            }
+        });
 
         final TextView longContentTextView = (TextView) findViewById(R.id.long_content_textView);
         final TextView moreContentTextView = (TextView) findViewById(R.id.more_content_textView);
@@ -316,70 +314,10 @@ public class MainActivity extends Activity {
         bar.setCustomView(view);
         // 硬编码绘制ActionBar的内容-end
 
-        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);// 标签(Tab)模式ActionBar
-        for (int i = 0; i < 4; i++) {
-            final int ii = i;
-            Tab tab = bar.newTab();
-            tab.setText("Tab-" + i).setIcon(R.drawable.ic_launcher).setContentDescription("标签:" + i).setTabListener(new TabListener() {
-
-                @Override
-                public void onTabReselected(Tab tab, FragmentTransaction ft) {
-                    Toast.makeText(MainActivity.this, "onTabReselected-" + ii, Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onTabSelected(Tab tab, FragmentTransaction ft) {
-                    Toast.makeText(MainActivity.this, "onTabSelected-" + ii, Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-                    Toast.makeText(MainActivity.this, "onTabUnselected-" + ii, Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            if (0 == i) {
-                bar.addTab(tab, true);
-            } else {
-                bar.addTab(tab);
-            }
-        }
-
         // bar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST); // 下拉框模式ActionBar
 
-        service = new SaveFileService(this);
-        button = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
-        button4 = (Button) findViewById(R.id.button4);
-        spinner = (Spinner) findViewById(R.id.spinner);
-
-        // 建立perference文件并开启编辑
-        spf = getSharedPreferences("helloworld", MODE_PRIVATE);
-        editor = spf.edit();
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "保存文件逻辑已删除", Toast.LENGTH_LONG);
-            }
-        });
-        // 保存文件
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "保存文件逻辑已删除", Toast.LENGTH_LONG);
-            }
-        });
-
-        button2.setVisibility(View.GONE);// VISIBLE:位置留白;GONE:位置补上.
-        // 但是GridLayout情况特殊,如下代码所示:
-
-        // GridLayout gridLayout = (GridLayout) findViewById(R.id.gridlayout);
-        // gridLayout.removeView(button2);//
-        // GridLayout的子View即使设置GONE也不会补位,需要调用removeView()方法将其删除
-
         // 显示意图,并等待回值
-        button4.setOnClickListener(new View.OnClickListener() {
+        button4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
@@ -406,15 +344,6 @@ public class MainActivity extends Activity {
 
             }
 
-        });
-
-        // 强行在UI线程上运行
-        this.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-
-            }
         });
 
         final ToggleButton toggleButton = (ToggleButton) findViewById(R.id.togglebutton);

@@ -1,14 +1,10 @@
-package com.myAndroid.helloworld.service;
+package com.myAndroid.helloworld.service.aidl;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
-import android.os.Looper;
 import android.os.RemoteException;
 import android.widget.Toast;
-
-import com.myAndroid.helloworld.service.aidl.AidlBean;
-import com.myAndroid.helloworld.service.aidl.IMyAidl;
 
 /**
  * 1.注意，该Service在清单文件中定义时，将progress设置成了:myAidl。即另起一个名为myAidl的进程（是进程，不是线程）来运行该Service。
