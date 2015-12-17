@@ -184,7 +184,7 @@
         <activity android:name=".activity.AidlServiceActivity" />
         <activity
             android:name=".activity.ActionBarActivity"
-            android:theme="@style/Theme.MyExample"/>
+            android:theme="@style/MyActivityTheme"/>
     </application>
 
 </manifest>
