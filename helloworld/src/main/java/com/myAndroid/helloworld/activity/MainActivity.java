@@ -130,8 +130,7 @@ public class MainActivity extends Activity {
         });
 
         RelativeLayout.LayoutParams rLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        // rLayoutParams.addRule(RelativeLayout.RIGHT_OF,
-        // textView.getId());//设置rgithOf属性,其他的可举一反三
+        // rLayoutParams.addRule(RelativeLayout.RIGHT_OF,textView.getId());// 设置rgithOf属性,其他的可举一反三
         relativeLayout.addView(newTextView, rLayoutParams);
 
         mi1.setActionView(relativeLayout);
@@ -167,18 +166,6 @@ public class MainActivity extends Activity {
         subMenu.add(0, 88, 1, "SubMenu_Item-2");
 
         return true;
-
-    }
-
-    @Override
-    // 重写返回键
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-
-            // return true;// 当按键为BACK时就会被return掉
-        }
-
-        return super.onKeyDown(keyCode, event);
     }
 
     @Override
@@ -424,11 +411,6 @@ public class MainActivity extends Activity {
                 menu.add(0, 3, 1, "333");
             }
         });
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
     }
 
     /**

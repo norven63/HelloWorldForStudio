@@ -31,6 +31,13 @@
         <item>3</item>
     </string-array>
 
+    <string name="cardview_contents">This is a CardView widget. CardView widgets can have
+        shadows and rounded corners.
+        \n\nTo create a card with a shadow, use the <font fgcolor="#FFFFFFFF">android:elevation</font>
+        attribute.
+        \n\nTo set the corner radius in your layouts, use the <font bgcolor="#FFFF37" fgcolor="#FF286BB9" size="18">card_view:cardCornerRadius</font> attribute.
+    </string>
+
     <item name="timer" type="id" />
     <item name="isMove" type="id" />
     <item name="bg" type="id" />
