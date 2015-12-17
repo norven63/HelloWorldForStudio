@@ -181,7 +181,10 @@
         <activity android:name=".luncher_demo.LuncherDemoActivity" />
         <activity android:name=".customView.dragFresh.DragToReFreshActivity" />
         <activity android:name=".activity.DrawerLayoutActivity" />
-        <activity android:name=".activity.AidlServiceActivity"></activity>
+        <activity android:name=".activity.AidlServiceActivity" />
+        <activity
+            android:name=".activity.ActionBarActivity"
+            android:theme="@style/Theme.MyExample"/>
     </application>
 
 </manifest>
