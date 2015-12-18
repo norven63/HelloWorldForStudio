@@ -4,30 +4,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:text="Test"
-        android:id="@+id/test_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:text="Button"
-        android:id="@+id/test_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
     <ImageView
-        android:src="@drawable/ic_launcher"
         android:id="@+id/imageView"
-        android:layout_gravity="center"
         android:layout_width="150dp"
-        android:layout_height="200dp" />
+        android:layout_height="120dp"
+        android:layout_gravity="center" />
 
     <ImageView
-        android:src="@drawable/ic_launcher"
         android:id="@+id/imageView_2"
-        android:layout_gravity="center"
         android:layout_width="150dp"
-        android:layout_height="200dp" />
+        android:layout_height="120dp"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:id="@+id/imageView_3"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center" />
 
 </LinearLayout>

@@ -15,7 +15,11 @@ public class ActionBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_bar);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        /**
+         * 记住这里一定要用getSupportActionBar()，否则如果用传统的getActionBar()会返回null
+         */
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
     @Override
@@ -32,6 +36,10 @@ public class ActionBarActivity extends AppCompatActivity {
          * 菜单项点击事件
          */
         switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(ActionBarActivity.this, "Home", Toast.LENGTH_SHORT).show();
+                return true;
+
             case R.id.menu_refresh:
                 Toast.makeText(ActionBarActivity.this, "bar：刷新", Toast.LENGTH_SHORT).show();
                 return true;
