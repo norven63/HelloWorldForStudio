@@ -387,6 +387,13 @@
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.CardViewActivity"
                     android:text="CardView示例" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.RecyclerViewActivity"
+                    android:text="RecyclerView示例" />
             </GridLayout>
         </LinearLayout>
     </HorizontalScrollView>
