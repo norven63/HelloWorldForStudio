@@ -76,7 +76,7 @@ public class RecyclerViewActivity extends Activity {
         recyclerView.setLayoutManager(gridLayoutManager);
 
         recyclerView.setItemAnimator(new DefaultItemAnimator());//设置默认布局动画(当有元素新增、删除时的动画)
-        recyclerView.addItemDecoration(new MyItemDecoration(this, true));//设置分割符
+        recyclerView.addItemDecoration(new MyItemDecoration(this));//设置分割符
         mAdapter = new MyRecyclerAdapter(mDataset);
         recyclerView.setAdapter(mAdapter);
 
