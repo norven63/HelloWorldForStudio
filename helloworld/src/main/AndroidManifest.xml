@@ -189,7 +189,7 @@
         <activity android:name=".customView.dragFresh.DragToReFreshActivity" />
         <activity android:name=".activity.AidlServiceActivity" />
         <activity android:name=".activity.CardViewActivity" />
-        <activity android:name=".activity.RecyclerViewActivity"></activity>
+        <activity android:name=".activity.recyclerView.RecyclerViewActivity"></activity>
     </application>
 
 </manifest>
