@@ -15,6 +15,7 @@ public class ActionBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_action_bar);
 
+        //
         /**
          * 记住这里一定要用getSupportActionBar()，否则如果用传统的getActionBar()会返回null
          */
