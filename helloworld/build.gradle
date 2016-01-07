@@ -32,6 +32,11 @@ android {
             versionName "3.0.0"
         }
     }
+
+    //关闭报错即终止编译的开关
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {

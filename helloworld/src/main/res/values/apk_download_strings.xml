@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 状态文字 -->
+    <string name="apk_download_status_default">NaN</string>
+    <string name="apk_download_status_downloading">Downloading</string>
+    <string name="apk_download_status_paused">Paused</string>
+    <string name="apk_download_status_succeed">Succeed</string>
+    <string name="apk_download_status_failed">Failed</string>
+    <string name="apk_download_status_installing">Installing</string>
+    <string name="apk_download_status_installed">Installed</string>
+    
+    <!-- 按钮文字 -->
+    <string name="apk_download_btn_default">NaN</string>
+    <string name="apk_download_btn_downloading">Pause</string>
+    <string name="apk_download_btn_paused">Start</string>
+    <string name="apk_download_btn_succeed">Install</string>
+    <string name="apk_download_btn_failed">Restart</string>
+    <string name="apk_download_btn_installing">Installing</string>
+    <string name="apk_download_btn_installed">Open</string>
+</resources>

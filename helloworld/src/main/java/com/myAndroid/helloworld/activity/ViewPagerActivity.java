@@ -56,7 +56,7 @@ public class ViewPagerActivity extends FragmentActivity {
 		imaViews.add(imageView3);
 
 		final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
-		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
+		viewPager.addOnPageChangeListener(new OnPageChangeListener() {
 			private int selectedPage;
 
 			@Override

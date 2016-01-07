@@ -11,10 +11,10 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!-- 允许程序写入外部存储，如SD卡上写文件 -->
+    <!--&lt;!&ndash; 允许程序写入外部存储，如SD卡上写文件 &ndash;&gt;
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 允许程序读取外部存储 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    &lt;!&ndash; 允许程序读取外部存储 &ndash;&gt;
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
     <!-- 申请自定义的权限 -->
     <uses-permission android:name="com.myAndroid.hellorld.orderReceiver.permission" />
     <!-- 声明自定义的权限 -->
@@ -161,7 +161,6 @@
         <activity android:name=".activity.DataListActivity" />
         <activity android:name=".activity.PopupwindowOnLeftActivity" />
         <activity android:name=".activity.SendMessageActivity" />
-        <activity android:name=".activity.SlidingDrawerActivity" />
         <activity android:name=".activity.DownloadManagerActivity" />
         <activity android:name=".activity.ImageViewActivity" />
         <activity android:name=".activity.WebViewActivity" />
@@ -189,7 +188,18 @@
         <activity android:name=".customView.dragFresh.DragToReFreshActivity" />
         <activity android:name=".activity.AidlServiceActivity" />
         <activity android:name=".activity.CardViewActivity" />
-        <activity android:name=".activity.recyclerView.RecyclerViewActivity"></activity>
+        <activity android:name=".activity.recyclerView.RecyclerViewActivity" />
+
+        <service
+            android:name=".service.aidl.AidlService2"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <!--APK下载模块-->
+        <service android:name=".apkdownloader.ApkDownloadService" />
+        <activity
+            android:name=".apkdownloader.ui.ApkDownloadActivity"
+            android:launchMode="singleInstance" />
     </application>
 
 </manifest>

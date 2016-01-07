@@ -168,13 +168,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
-                    android:tag="com.myAndroid.helloworld.activity.SlidingDrawerActivity"
-                    android:text="滑动菜单效果" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.DrawerLayoutActivity"
                     android:text="官方滑动菜单效果" />
 
@@ -394,6 +387,13 @@
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.recyclerView.RecyclerViewActivity"
                     android:text="RecyclerView示例" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.apkdownloader.ui.ApkDownloadActivity"
+                    android:text="APK下载示例" />
             </GridLayout>
         </LinearLayout>
     </HorizontalScrollView>

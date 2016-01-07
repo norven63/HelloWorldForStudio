@@ -30,7 +30,6 @@ public class WebViewActivity extends Activity {
         webView = (WebView) findViewById(R.id.webview);
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setPluginState(PluginState.ON);
 		webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
 

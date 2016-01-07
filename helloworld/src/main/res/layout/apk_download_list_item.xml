@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp">
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="40.0dip"
+        android:layout_height="40.0dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/app_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_toRightOf="@id/app_icon"
+        android:singleLine="true"
+        android:text="app_label"
+        android:textColor="@android:color/black" />
+
+    <ProgressBar
+        android:id="@+id/app_progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_below="@id/app_label"
+        android:layout_toLeftOf="@+id/app_btn"
+        android:layout_toRightOf="@id/app_icon"
+        android:indeterminate="true"
+        android:max="100" />
+
+    <TextView
+        android:id="@+id/app_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_progressBar"
+        android:layout_toRightOf="@id/app_icon"
+        android:singleLine="true"
+        android:text="app_status"
+        android:textColor="@android:color/black" />
+
+    <Button
+        android:id="@+id/app_btn"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:singleLine="true" />
+</RelativeLayout>
