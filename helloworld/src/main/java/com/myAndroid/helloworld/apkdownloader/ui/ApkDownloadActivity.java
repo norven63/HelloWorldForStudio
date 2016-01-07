@@ -19,6 +19,7 @@ import android.os.Environment;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v4.app.ActivityCompat;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -104,24 +105,81 @@ public class ApkDownloadActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo mobNetInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-                NetworkInfo wifiNetInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-
                 if (mService == null) {
                     return;
                 }
 
-                if (wifiNetInfo.isConnected()) {
-                    Log.e("apk_download", "网络：wifi连接");
-                    mService.resumeAllTasks();
-                } else {
-                    Log.e("apk_download", "网络：wifi断开");
+//                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+//                NetworkInfo mobNetInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+//                NetworkInfo wifiNetInfo = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+//
+//                if (wifiNetInfo.isConnected()) {
+//                    Log.e("apk_download", "网络：wifi连接");
+//                    mService.resumeAllTasks();
+//                } else {
+//                    Log.e("apk_download", "网络：wifi断开");
+//                    mService.pauseAllTasks();
+//                }
+
+                boolean noNetWork = intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false);
+                if (noNetWork) {
+                    Log.e("apk_download", "当前无网络连接");
                     mService.pauseAllTasks();
+
+                    return;
+                }
+
+                int networkType = intent.getIntExtra(ConnectivityManager.EXTRA_NETWORK_TYPE, ConnectivityManager.TYPE_DUMMY);
+                switch (networkType) {
+                    case ConnectivityManager.TYPE_MOBILE:
+                        Log.e("apk_download", "网络：蜂窝 " + checkfor3GorLte());
+                        mService.pauseAllTasks();
+
+                        break;
+                    case ConnectivityManager.TYPE_WIFI:
+                        Log.e("apk_download", "网络：wifi");
+                        mService.resumeAllTasks();
+
+                        break;
+                    default:
+                        break;
                 }
             }
         }
     };
+
+    /**
+     * 检查网络类型
+     */
+    private String checkfor3GorLte() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+
+        switch (telephonyManager.getNetworkType()) {
+            case TelephonyManager.NETWORK_TYPE_GPRS:
+            case TelephonyManager.NETWORK_TYPE_EDGE:
+            case TelephonyManager.NETWORK_TYPE_CDMA:
+            case TelephonyManager.NETWORK_TYPE_1xRTT:
+            case TelephonyManager.NETWORK_TYPE_IDEN:
+                return "2G";
+
+            case TelephonyManager.NETWORK_TYPE_UMTS:
+            case TelephonyManager.NETWORK_TYPE_EVDO_0:
+            case TelephonyManager.NETWORK_TYPE_EVDO_A:
+            case TelephonyManager.NETWORK_TYPE_HSDPA:
+            case TelephonyManager.NETWORK_TYPE_HSUPA:
+            case TelephonyManager.NETWORK_TYPE_HSPA:
+            case TelephonyManager.NETWORK_TYPE_EVDO_B:
+            case TelephonyManager.NETWORK_TYPE_EHRPD:
+            case TelephonyManager.NETWORK_TYPE_HSPAP:
+                return "3G";
+
+            case TelephonyManager.NETWORK_TYPE_LTE:
+                return "4G";
+
+            default:
+                return "未知";
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
