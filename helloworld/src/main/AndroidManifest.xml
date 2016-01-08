@@ -11,10 +11,12 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!--&lt;!&ndash; 允许程序写入外部存储，如SD卡上写文件 &ndash;&gt;
+    <!--
+    &lt;!&ndash; 允许程序写入外部存储，如SD卡上写文件 &ndash;&gt;
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     &lt;!&ndash; 允许程序读取外部存储 &ndash;&gt;
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    -->
     <!-- 申请自定义的权限 -->
     <uses-permission android:name="com.myAndroid.hellorld.orderReceiver.permission" />
     <!-- 声明自定义的权限 -->
@@ -193,13 +195,15 @@
         <service
             android:name=".service.aidl.AidlService2"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
-        <!--APK下载模块-->
+        <!-- APK下载模块 -->
         <service android:name=".apkdownloader.ApkDownloadService" />
+
         <activity
             android:name=".apkdownloader.ui.ApkDownloadActivity"
             android:launchMode="singleInstance" />
+        <activity android:name=".activity.dataBinding.DataBindingActivity"></activity>
     </application>
 
 </manifest>

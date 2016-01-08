@@ -392,6 +392,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.dataBinding.DataBindingActivity"
+                    android:text="Data binding示例" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.apkdownloader.ui.ApkDownloadActivity"
                     android:text="APK下载示例" />
             </GridLayout>

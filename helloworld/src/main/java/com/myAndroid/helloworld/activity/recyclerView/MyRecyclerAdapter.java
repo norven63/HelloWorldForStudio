@@ -1,5 +1,7 @@
 package com.myAndroid.helloworld.activity.recyclerView;
 
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -20,19 +22,19 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     private List<String> dataSource = Lists.newArrayList();
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        private final int viewType;
+
         private final View itemView;
 
         private final TextView textView;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView, int viewType) {
             super(itemView);
+
+            this.viewType = viewType;
 
             this.itemView = itemView;
             textView = (TextView) itemView.findViewById(R.id.textViewRecyclerItem);
-        }
-
-        public TextView getTextView() {
-            return textView;
         }
     }
 
@@ -43,7 +45,7 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
     }
 
     /**
-     * 重新该方法，将会影响onCreateViewHolder方法的viewType入参
+     * 重新定义该方法，其返回值将会影响onCreateViewHolder方法的viewType入参
      */
     @Override
     public int getItemViewType(int position) {
@@ -56,22 +58,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
 
     /**
      * 渲染每个item视图的布局
-     * 注：此处的viewType入参将会受getItemViewType方法的影响
+     * 注：此处的viewType入参会受getItemViewType()方法返回值的影响
      */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_recycler_view, viewGroup, false);
 
-        //TODO 这里的业务逻辑可以考虑挪到onBindViewHolder方法中。如果需要用到viewType作为判断阈值，则可以将viewType设置为view的Tag属性来携带
-        switch (viewType) {
-            case TYPE_HEADER:
-                ((TextView) itemView.findViewById(R.id.textViewRecyclerItem)).setText("> 表头 <");
-                break;
-            default:
-                break;
-        }
-
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView, viewType);
     }
 
     /**
@@ -79,8 +72,18 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
      */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        if (!viewHolder.getTextView().getText().equals("> 表头 <")) {
-            viewHolder.getTextView().setText(dataSource.get(position));
+        String item = dataSource.get(position);
+
+        switch (viewHolder.viewType) {
+            case TYPE_HEADER:
+                ((TextView) viewHolder.itemView.findViewById(R.id.textViewRecyclerItem)).setText("> 表头 <");
+                break;
+            default:
+                break;
+        }
+
+        if (!viewHolder.textView.getText().equals("> 表头 <")) {
+            viewHolder.textView.setText(item);
         }
 
         //单击添加
@@ -88,7 +91,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
             @Override
             public void onClick(View v) {
                 dataSource.add(position, "add_" + position);
-                notifyItemInserted(position);
+
+                notifyItemInserted(position);//该方法会触发动画效果
             }
         });
 
@@ -97,7 +101,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
             @Override
             public boolean onLongClick(View v) {
                 dataSource.remove(position);
-                notifyItemRemoved(position);
+
+                notifyItemRemoved(position);//该方法会触发动画效果
 
                 return false;
             }

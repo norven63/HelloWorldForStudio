@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+切记：这里的layout标签不要有layout_width、layout_height属性
+参阅官网：http://developer.android.com/tools/data-binding/guide.html#studio_support
+-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--class属性指定了自动生成的binding对象名称，详细的命名规则和对象生成规则可以参阅Custom Binding Class Names章节-->
+    <data class="MyDataBinding">
+        <!--这里导入View后，可以在下面的@{}表达式里引用View的成员变量，诸如View.VISIBLE、View.GONE-->
+        <import type="android.view.View" />
+
+        <!--为防止命名冲突，起别名-->
+        <import
+            alias="View_2"
+            type="com.myAndroid.helloworld.activity.dataBinding.View" />
+
+        <!--注意：如果要申明集合，需要把List和其中的元素一起import进来-->
+        <import type="java.util.List" />
+
+        <import type="com.myAndroid.helloworld.activity.dataBinding.User" />
+
+        <!--
+        申明一个集合,注意type里的书写格式。由于已经import过，所以只需要写类名即可，而无须再写上完整的包路径
+        另外，这里用&lt;代替了<符号，是由于variable标签无法包含<符号
+        -->
+        <variable
+            name="userList"
+            type="List&lt;User>" />
+
+        <!--同理，type只需要写类名即可，无须书写完整的包路径-->
+        <variable
+            name="user"
+            type="User" />
+
+        <!--由于没有import过，所以这里需要书写完整的包路径-->
+        <variable
+            name="clickHandler"
+            type="com.myAndroid.helloworld.activity.dataBinding.MyClickHandler" />
+
+    </data>
+
+    <!--申明id后，该控件将会变成binding对象的一个成员变量-->
+    <LinearLayout
+        android:id="@+id/data_bind_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--注册点击事件-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{user.isFriend ? clickHandler.onClickFriend : clickHandler.onClickEnemy}"
+            android:text="@{user.firstName}"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{user.isFriend ? clickHandler.onClickFriend : clickHandler.onClickEnemy}"
+            android:text="@{user.lastName}"
+            android:textSize="16sp" />
+
+        <!--默认已经导入了java.lang.* 所以这里可以直接使用String。-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(userList.size)}"
+            android:textSize="16sp" />
+
+        <!--获取集合里的元素-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userList.get(0).lastName}"
+            android:textSize="16sp" />
+
+        <!--注意这里的单双引号书写格式，更多字符串书写详情参阅String Literals章节-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{userList.size > 0?"has elements":"none"}'
+            android:textSize="16sp" />
+
+        <!--可以引用资源-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{user.isFriend?@drawable/ic_launcher:@drawable/ic_launcher}" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</layout>
