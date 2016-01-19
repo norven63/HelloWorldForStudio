@@ -29,13 +29,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="菜单项A" />
+            android:text="左菜单项A" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="菜单项B" />
+            android:text="左菜单项B" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="@color/blue"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="右菜单项C" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="右菜单项D" />
 
     </LinearLayout>
 
