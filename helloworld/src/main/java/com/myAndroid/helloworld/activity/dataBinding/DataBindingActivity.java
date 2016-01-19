@@ -5,7 +5,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.LinearLayout;
 
 import com.myAndroid.helloworld.R;
 import com.myAndroid.helloworld.databinding.MyDataBinding;
@@ -38,7 +37,7 @@ public class DataBindingActivity extends Activity {
 
         User userFromBinding = binding.getUser();//啥也别说了，之前都set过了，这里当然也能get。同理，其他任何在xml中申明过的variable变量也都可以get出来
 
-        RecyclerView recyclerView = binding.recyclerView;//xml布局中，生命id为recyclerView的控件会变成binding的一个成员变量
+        RecyclerView recyclerView = binding.recyclerView;//xml布局中，申明id为recyclerView的控件会变成binding的一个成员变量
         recyclerView.setAdapter(new DataBindingRecyclerAdapter(new String[]{"aaa", "bbb", "ccc", "ddd", "aaa", "bbb", "ccc", "ddd"}));
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }

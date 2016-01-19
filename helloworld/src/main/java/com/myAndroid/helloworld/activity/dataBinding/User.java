@@ -10,7 +10,7 @@ import com.myAndroid.helloworld.BR;
  * @date 2016年01月08日 11:21
  * @Description 继承自BaseObservable，实现通知监听者值更改的功能。
  * 在需要属性变更的get方法中使用注解@Bindable，然后在set方法中调用notifyPropertyChanged进行通知
- * 此外DataBinding还支持集合的监听绑定，详情可以参阅Observable Collections章节
+ * 此外DataBinding还支持集合的监听绑定，详情可以参阅官方文档Observable Collections章节
  */
 public class User extends BaseObservable {
     private String firstName;

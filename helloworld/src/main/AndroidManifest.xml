@@ -203,7 +203,8 @@
         <activity
             android:name=".apkdownloader.ui.ApkDownloadActivity"
             android:launchMode="singleInstance" />
-        <activity android:name=".activity.dataBinding.DataBindingActivity"></activity>
+        <activity android:name=".activity.dataBinding.DataBindingActivity" />
+        <activity android:name=".activity.RxJavaActivity"></activity>
     </application>
 
 </manifest>

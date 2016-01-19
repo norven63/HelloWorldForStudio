@@ -4,7 +4,7 @@
 -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--class属性指定了自动生成的binding对象名称，详细的命名规则和对象生成规则可以参阅Custom Binding Class Names章节-->
+    <!--class属性指定了自动生成的binding对象名称，详细的命名规则和对象生成规则可以参阅官方文档Custom Binding Class Names章节-->
     <data class="MyDataBinding">
         <!--这里导入View后，可以在下面的@{}表达式里引用View的成员变量，诸如View.VISIBLE、View.GONE-->
         <import type="android.view.View" />
@@ -21,7 +21,7 @@
 
         <!--
         申明一个集合,注意type里的书写格式。由于已经import过，所以只需要写类名即可，而无须再写上完整的包路径
-        另外，这里用&lt;代替了<符号，是由于variable标签无法包含<符号
+        另外，这里用&lt;代替了<符号，是由于variable标签不允许包含有<符号
         -->
         <variable
             name="userList"

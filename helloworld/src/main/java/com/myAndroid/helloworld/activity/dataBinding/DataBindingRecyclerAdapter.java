@@ -32,10 +32,6 @@ public class DataBindingRecyclerAdapter extends RecyclerView.Adapter<DataBinding
         dataSource.addAll(Arrays.asList(dataSet));
     }
 
-    /**
-     * 渲染每个item视图的布局
-     * 注：此处的viewType入参会受getItemViewType()方法返回值的影响
-     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         ItemDataBindRecyclerViewBinding binding = DataBindingUtil.inflate(
@@ -47,9 +43,6 @@ public class DataBindingRecyclerAdapter extends RecyclerView.Adapter<DataBinding
         return new ViewHolder(binding.getRoot(), binding);
     }
 
-    /**
-     * 将业务逻辑绑定每个item视图
-     */
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         String item = dataSource.get(position);
