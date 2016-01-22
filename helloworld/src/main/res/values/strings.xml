@@ -14,6 +14,7 @@
     <string name="fileContent">文件内容</string>
     <string name="saveSuccess">保存成功</string>
     <string name="saveFail">保存失败</string>
+    <string name="testFormat">自填字符串1：%1$s\n自填字符串2：%2$s</string>
 
     <string-array name="spinner_key">
         <item>选项一</item>

@@ -93,6 +93,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
                 dataSource.add(position, "add_" + position);
 
                 notifyItemInserted(position);//该方法会触发动画效果
+
+                //notifyItemRangeChanged(int positionStart, int itemCount); //该方法能够局部刷新某些item
             }
         });
 

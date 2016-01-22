@@ -216,6 +216,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        Toast.makeText(MainActivity.this, getResources().getString(R.string.testFormat, "aaa", "bbb"), Toast.LENGTH_SHORT).show();
+
         linkUrl.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
