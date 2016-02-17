@@ -1,6 +1,7 @@
 package com.myAndroid.helloworld.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
@@ -93,11 +94,16 @@ public class AnimationActivity extends Activity {
         scalXAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                objectAnimator.getBackground().setBounds(animFromWidth - (int) animation.getAnimatedValue(), 0, animFromWidth, animFromWidth / 4);
+                int value = (int) animation.getAnimatedValue();//当前动画帧回调的值
+                int fraction = (int) animation.getAnimatedFraction();//当前动画完成的百分比
+                objectAnimator.getBackground().setBounds(animFromWidth - value, 0, animFromWidth, animFromWidth / 4);
             }
         });
 
         AnimatorSet animatorSet = new AnimatorSet();
+        //        //如果是加载xml布局中的动画系，可以调用如下接口
+        //        AnimatorSet animatorSet2 = (AnimatorSet)AnimatorInflater.loadAnimator(this,R.animator.object_animator);
+
         animatorSet.playTogether(colorAnim, scalXAnim);
         animatorSet.setDuration(1800);
         animatorSet.addListener(new AnimatorListenerAdapter() {
@@ -125,7 +131,7 @@ public class AnimationActivity extends Activity {
             @Override
             public void onClick(View v) {
                 /**
-                 * 切记要在绘制完成UI后再执行动画
+                 * 切记要在绘制完成UI后再开始执行动画
                  */
                 elasticAnimatorSet.start();
             }

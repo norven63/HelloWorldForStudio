@@ -3,6 +3,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="没有数据" />
+
     <ListView
         android:id="@+id/listHead"
         android:layout_width="match_parent"
@@ -19,7 +25,7 @@
     <RelativeLayout
         android:id="@+id/popFragment"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="wrap_content" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -36,6 +42,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="popF"
-        android:text="弹出Fragment" />
+        android:text="退出Fragment" />
 
 </LinearLayout>

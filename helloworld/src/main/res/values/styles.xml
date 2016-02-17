@@ -20,7 +20,7 @@
     <!--因为使用了v7下的Activity，所以Theme必须是Theme.AppCompat下的一个-->
     <!--由于找不到全屏的，所以只能自定义一个继承自Theme.AppCompat的子Theme，然后设置windowFullscreen为true-->
     <style name="MyActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowFullscreen">true</item>
+        <!--<item name="android:windowFullscreen">true</item>-->
     </style>
 
     <color name="transparent">#00000000</color>

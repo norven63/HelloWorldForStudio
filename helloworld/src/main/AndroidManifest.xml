@@ -152,7 +152,9 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activity.DrawerLayoutActivity" />
+        <activity
+            android:name=".activity.DrawerLayoutActivity"
+            android:theme="@style/MyActivityTheme" />
         <activity
             android:name=".activity.ActionBarActivity"
             android:theme="@style/MyActivityTheme" />
@@ -160,7 +162,9 @@
         <activity android:name=".activity.ViewMoveActivity" />
         <activity android:name=".activity.SendOrderReceiverActivity" />
         <activity android:name=".activity.ThirdActivity" />
-        <activity android:name=".activity.DataListActivity" />
+        <activity
+            android:name=".activity.DataListActivity"
+            android:theme="@style/MyActivityTheme" />
         <activity android:name=".activity.PopupwindowOnLeftActivity" />
         <activity android:name=".activity.SendMessageActivity" />
         <activity android:name=".activity.DownloadManagerActivity" />

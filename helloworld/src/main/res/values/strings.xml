@@ -7,6 +7,9 @@
     <string name="second_activity">The Second Activity</string>
     <string name="third_activity">The Third Activity</string>
 
+    <string name="open">open</string>
+    <string name="close">close</string>
+
     <!-- saveFile -->
     <string name="putInFileName">请输入文件名</string>
     <string name="fileName">文件名</string>
