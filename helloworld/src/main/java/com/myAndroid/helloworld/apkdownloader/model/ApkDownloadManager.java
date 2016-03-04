@@ -37,6 +37,9 @@ public enum ApkDownloadManager {
     ApkDownloadInfoDao apkDownloadInfoDao;
 
     private final ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+    private final ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+    private final ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
+
     private List<ApkDownloadTask> apkDownloadTasks = new ArrayList<ApkDownloadTask>();
     private List<ApkDownloadTaskListChangeListener> apkDownloadTaskListChangeListeners = new ArrayList<ApkDownloadTaskListChangeListener>();
 
@@ -104,7 +107,6 @@ public enum ApkDownloadManager {
     }
 
     public List<ApkDownloadTask> getApkDownloadTasks() {
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 
@@ -122,7 +124,6 @@ public enum ApkDownloadManager {
             return;
         }
 
-        ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
         try {
             writeLock.lock();
 
@@ -149,7 +150,6 @@ public enum ApkDownloadManager {
      * 移除一个下载任务
      */
     public void removeApkDownloadTask(ApkDownloadTask apkDownloadTask) {
-        ReentrantReadWriteLock.WriteLock writeLock = readWriteLock.writeLock();
         try {
             writeLock.lock();
 
@@ -174,7 +174,6 @@ public enum ApkDownloadManager {
      * 暂停所有任务(仅限正在下载的任务)
      */
     public void cancelAllTasks() {
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 
@@ -200,7 +199,6 @@ public enum ApkDownloadManager {
      * 重新开始所有任务(仅限暂停、下载失败的任务)
      */
     public void resumeAllTasks() {
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 
@@ -287,7 +285,6 @@ public enum ApkDownloadManager {
             return false;
         }
 
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 
@@ -319,7 +316,6 @@ public enum ApkDownloadManager {
         }
 
         boolean hasTaskDownLoading = false;
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 
@@ -353,7 +349,6 @@ public enum ApkDownloadManager {
             return;
         }
 
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 
@@ -384,7 +379,6 @@ public enum ApkDownloadManager {
     public ApkDownloadTask getOneRunningTaskForNotification(Collection<ApkDownloadTask> remainProgressTasks) {
         ApkDownloadTask task = null;
 
-        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
         try {
             readLock.lock();
 

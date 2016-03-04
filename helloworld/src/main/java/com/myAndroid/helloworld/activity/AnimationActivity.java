@@ -1,7 +1,6 @@
 package com.myAndroid.helloworld.activity;
 
 import android.animation.Animator;
-import android.animation.AnimatorInflater;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ArgbEvaluator;
@@ -21,11 +20,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.myAndroid.helloworld.R;
-import com.myAndroid.helloworld.customView.MyCanvasView;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import com.myAndroid.helloworld.R;
+import com.myAndroid.helloworld.customView.MyCanvasView;
 
 public class AnimationActivity extends Activity {
     @Bind(R.id.rotate)
@@ -86,7 +85,7 @@ public class AnimationActivity extends Activity {
          * 动画集
          */
         //注意，这里渐变的是scale的背景
-        ValueAnimator colorAnim = ObjectAnimator.ofInt(scale.getBackground(), "color", getResources().getColor(android.R.color.holo_red_dark), getResources().getColor(android.R.color.holo_orange_light));
+        ValueAnimator colorAnim = ObjectAnimator.ofInt(scale.getBackground(), "color", getResources().getColor(android.R.color.holo_red_dark), getResources().getColor(R.color.blue));
         colorAnim.setEvaluator(new ArgbEvaluator());//该接口可以使眼色柔和的渐变
 
         final int animFromWidth = (int) getResources().getDimension(R.dimen.animationFromWidth);
