@@ -1,5 +1,8 @@
 <resources>
 
    <color name="background" >#CCCCCC</color>
+   <color name="color_448aff" >#448aff</color>
+   <color name="color_c7dbfb" >#c7dbfb</color>
+   <color name="color_fafafa" >#fafafa</color>
 
 </resources>

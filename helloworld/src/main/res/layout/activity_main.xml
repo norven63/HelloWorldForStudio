@@ -401,6 +401,13 @@
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.apkdownloader.ui.ApkDownloadActivity"
                     android:text="APK下载示例" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.shadow.ShadowActivity"
+                    android:text="阴影" />
             </GridLayout>
         </LinearLayout>
     </HorizontalScrollView>
