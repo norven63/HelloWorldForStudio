@@ -145,9 +145,10 @@ public abstract class BaseGroupRecyclerAdapter<GroupItem, ChildItem, GroupViewHo
     }
 
     /**
-     * 根据总索引，计算出组item于所在集合中的索引、子item于所在集合中的索引
+     * 根据<总索引>，计算出<组item>于所在集合中的索引、<子item>于所在集合中的索引
      *
      * @param position
+     *            总索引
      * @return
      */
     private int[] getPositions(final int position) {
@@ -164,7 +165,7 @@ public abstract class BaseGroupRecyclerAdapter<GroupItem, ChildItem, GroupViewHo
             }
         }
 
-        postions[1] = childDataSource.get(postions[0]).size() - (indexTemp - position);// 子item所属集合的size - （第一个大于总索引的组item索引 - 总索引）
+        postions[1] = childDataSource.get(postions[0]).size() - (indexTemp - position);// 子item所属集合的size - （第一个大于 总索引 的 组item索引 - 总索引）
 
         return postions;
     }
@@ -174,11 +175,11 @@ public abstract class BaseGroupRecyclerAdapter<GroupItem, ChildItem, GroupViewHo
         return getGroupCount() + getChildCount();
     }
 
-    protected int getGroupCount() {
+    public int getGroupCount() {
         return groupDataSource == null ? 0 : groupDataSource.size();
     }
 
-    protected int getChildCount() {
+    public int getChildCount() {
         int childCount = 0;
 
         if (childDataSource == null || childDataSource.isEmpty()) {
