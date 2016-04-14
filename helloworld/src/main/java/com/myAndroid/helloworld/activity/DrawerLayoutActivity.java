@@ -1,6 +1,5 @@
 package com.myAndroid.helloworld.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
@@ -10,6 +9,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.myAndroid.helloworld.R;
@@ -21,6 +21,8 @@ public class DrawerLayoutActivity extends AppCompatActivity {
 
     @Bind(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+    @Bind(R.id.buttonA)
+    Button button;
 
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -74,6 +76,14 @@ public class DrawerLayoutActivity extends AppCompatActivity {
         };
 
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.closeDrawer(Gravity.LEFT);
+                drawerLayout.openDrawer(Gravity.RIGHT);
+            }
+        });
     }
 
     @Override

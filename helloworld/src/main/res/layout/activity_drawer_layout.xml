@@ -18,7 +18,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/blue"
+        android:background="@color/white"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
@@ -26,6 +26,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/buttonA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -40,7 +41,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="@color/blue"
+        android:background="@color/white"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="right"
