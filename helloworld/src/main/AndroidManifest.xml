@@ -209,7 +209,8 @@
             android:launchMode="singleInstance" />
         <activity android:name=".activity.dataBinding.DataBindingActivity" />
         <activity android:name=".activity.RxJavaActivity" />
-        <activity android:name=".activity.shadow.ShadowActivity"></activity>
+        <activity android:name=".activity.shadow.ShadowActivity" />
+        <activity android:name=".activity.LayoutTransitionActivity"></activity>
     </application>
 
 </manifest>
