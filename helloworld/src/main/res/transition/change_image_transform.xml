@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet>
+    <!--为目标视图的布局边界的变化添加动画。-->
+    <changeBounds />
+    <!--为目标视图的裁剪边界的变化添加动画。-->
+    <changeClipBounds />
+    <!--为目标视图的缩放与旋转变化添加动画。-->
+    <changeTransform />
+    <!--为目标图像的大小与缩放变化添加动画。-->
+    <changeImageTransform />
+</transitionSet>

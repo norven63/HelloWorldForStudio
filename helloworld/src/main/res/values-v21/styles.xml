@@ -2,6 +2,11 @@
 <resources>
 
     <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/change_image_transform
+        </item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/change_image_transform
+        </item>
     </style>
 </resources>
