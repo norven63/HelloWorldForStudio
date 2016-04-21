@@ -9,12 +9,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.shareElement.SharedElementActivity">
 
-    <View
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:background="#116BB9"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:transitionName="share" />
+
+    <TextView
         android:id="@+id/share_view"
         android:layout_width="220dp"
         android:layout_height="320dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:background="@android:color/darker_gray"
+        android:background="#116BB9"
+        android:gravity="center"
+        android:textSize="18sp"
         android:transitionName="share" />
+
 </RelativeLayout>

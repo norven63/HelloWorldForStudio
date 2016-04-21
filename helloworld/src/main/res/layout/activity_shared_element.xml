@@ -9,7 +9,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.shareElement.SharedElementActivity">
 
-    <View
+    <TextView
+        android:text="该示例只适用于5.0以上的版本"
         android:id="@+id/share_view"
         android:layout_width="120dp"
         android:layout_height="120dp"
