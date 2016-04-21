@@ -1,8 +1,10 @@
 package com.myAndroid.helloworld.activity;
 
 import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LayoutTransitionActivity extends Activity {
+    @Bind(R.id.button_add)
+    Button button;
     @Bind(R.id.container)
     LinearLayout container;
 
@@ -28,16 +32,36 @@ public class LayoutTransitionActivity extends Activity {
         LayoutTransition transition = new LayoutTransition();
         container.setLayoutTransition(transition);
 
-        //进入动画：反转
-        Animator appearAnim = ObjectAnimator.ofFloat(null, "rotationY", 90f, 0f).setDuration(transition.getDuration(LayoutTransition.APPEARING));
+        //进入动画：翻转
+        PropertyValuesHolder appearSlide = PropertyValuesHolder.ofFloat("x", 0, 1);
+        PropertyValuesHolder appearScaleY = PropertyValuesHolder.ofFloat("scaleY", 0f, 1f);
+        PropertyValuesHolder appearScaleX = PropertyValuesHolder.ofFloat("scaleX", 0f, 1f);
+
+        Animator appearAnim = ObjectAnimator.ofPropertyValuesHolder("Just a parameter", appearSlide, appearScaleY, appearScaleX);
+        appearAnim.setDuration(transition.getDuration(LayoutTransition.APPEARING));
+
         transition.setAnimator(LayoutTransition.APPEARING, appearAnim);
 
-        
+        //退出动画：翻转
+        Animator disAppearAnim = ObjectAnimator.ofFloat(null, "rotationY", 0f, 90f).setDuration(transition.getDuration(LayoutTransition.APPEARING));
+        transition.setAnimator(LayoutTransition.DISAPPEARING, disAppearAnim);
+
+        //改变动画：...
+        PropertyValuesHolder pvhSlide = PropertyValuesHolder.ofFloat("y", 1, 0);
+        PropertyValuesHolder pvhScaleY = PropertyValuesHolder.ofFloat("scaleY", 1f, 0.5f, 1f);
+        PropertyValuesHolder pvhScaleX = PropertyValuesHolder.ofFloat("scaleX", 1f, 0.5f, 1f);
+
+        Animator changingAppearingAnim = ObjectAnimator.ofPropertyValuesHolder("Just a parameter", pvhSlide, pvhScaleY, pvhScaleX);
+        changingAppearingAnim.setDuration(transition.getDuration(LayoutTransition.CHANGE_DISAPPEARING));
+
+        transition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, changingAppearingAnim);
     }
 
     @OnClick(R.id.button_add)
     public void addItem(View view) {
         final Button button = new Button(this);
+//        button.setPivotX(1f);
+//        button.setPivotY(1f);
         button.setText("New Button");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +70,6 @@ public class LayoutTransitionActivity extends Activity {
             }
         });
 
-        container.addView(button);
+        container.addView(button, 0);
     }
 }

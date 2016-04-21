@@ -90,9 +90,9 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.Vi
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dataSource.add(position, "add_" + position);
+                dataSource.add(0, "add++" + position);
 
-                notifyItemInserted(position);//该方法会触发动画效果
+                notifyItemInserted(0);//该方法会触发动画效果
 
                 //notifyItemRangeChanged(int positionStart, int itemCount); //该方法能够局部刷新某些item
             }

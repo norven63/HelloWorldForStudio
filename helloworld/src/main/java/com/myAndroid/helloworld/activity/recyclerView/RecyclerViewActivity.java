@@ -2,27 +2,21 @@ package com.myAndroid.helloworld.activity.recyclerView;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 import android.widget.RadioButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.common.collect.Lists;
 import com.myAndroid.helloworld.R;
-
-import java.util.Arrays;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 
 public class RecyclerViewActivity extends Activity {
     @Bind(R.id.recyclerView)
@@ -73,12 +67,22 @@ public class RecyclerViewActivity extends Activity {
     }
 
     private void initView() {
-        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setLayoutManager(linearLayoutManagerVertical);
 
-        recyclerView.setItemAnimator(new DefaultItemAnimator());//设置默认布局动画(当有元素新增、删除时的动画)
         recyclerView.addItemDecoration(new MyItemDecoration(this));//设置分割符
+
+        //设置默认布局动画(此处运用了第三方库)
         mAdapter = new MyRecyclerAdapter(mDataset);
-        recyclerView.setAdapter(mAdapter);
+        ScaleInAnimationAdapter scaleInAnimationAdapter = new ScaleInAnimationAdapter(mAdapter);
+        scaleInAnimationAdapter.setDuration(500);
+        scaleInAnimationAdapter.setFirstOnly(false);
+        recyclerView.setAdapter(scaleInAnimationAdapter);
+
+        recyclerView.setItemAnimator(new SlideInLeftAnimator(new OvershootInterpolator(1f)));
+        recyclerView.getItemAnimator().setAddDuration(1000);
+        recyclerView.getItemAnimator().setRemoveDuration(1000);
+        recyclerView.getItemAnimator().setMoveDuration(1000);
+        recyclerView.getItemAnimator().setChangeDuration(1000);
 
         radioLinerHorizontal.setOnClickListener(new View.OnClickListener() {
             @Override

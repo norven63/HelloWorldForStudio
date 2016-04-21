@@ -101,8 +101,8 @@ public class AnimationActivity extends Activity {
         });
 
         AnimatorSet animatorSet = new AnimatorSet();
-        //        //如果是加载xml布局中的动画系，可以调用如下接口
-                AnimatorSet animatorSet2 = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.object_animator);
+        //如果是加载xml布局中的动画系，可以调用如下接口
+        AnimatorSet animatorSet2 = (AnimatorSet) AnimatorInflater.loadAnimator(this, R.animator.object_animator);
 
         animatorSet.playTogether(colorAnim, scalXAnim);
         animatorSet.setDuration(1800);
