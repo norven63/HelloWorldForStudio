@@ -10,10 +10,19 @@
     tools:context=".activity.shareElement.SharedElementActivity">
 
     <TextView
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EE6FB9"
+        android:gravity="center"
         android:text="该示例只适用于5.0以上的版本"
-        android:id="@+id/share_view"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@android:color/darker_gray"
-        android:transitionName="share" />
+        android:textSize="18sp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom"
+        android:layout_marginBottom="15dp" />
 </RelativeLayout>
