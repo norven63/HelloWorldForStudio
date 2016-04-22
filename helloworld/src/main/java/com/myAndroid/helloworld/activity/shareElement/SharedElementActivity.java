@@ -7,10 +7,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.TextView;
 
 import com.myAndroid.helloworld.R;
@@ -24,17 +24,11 @@ import butterknife.ButterKnife;
 public class SharedElementActivity extends Activity {
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
+    @Bind(R.id.bottom)
+    View bottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-
-//        getWindow().setEnterTransition(new Explode());
-//        getWindow().setExitTransition(new Explode());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setAllowEnterTransitionOverlap(true);
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shared_element);
         ButterKnife.bind(this);
@@ -57,8 +51,8 @@ public class SharedElementActivity extends Activity {
                             Intent intent = new Intent(SharedElementActivity.this, SharedElementActivity2.class);
                             intent.putExtra("item", getItem(position));
 
-                            //android:transitionName="robot"
-                            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SharedElementActivity.this, view, "share");
+                            //android:transitionName="share1"
+                            ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SharedElementActivity.this, Pair.create(view, "share1"), Pair.create(bottom, "share2"));
 
                             startActivity(intent, options.toBundle());
                         }

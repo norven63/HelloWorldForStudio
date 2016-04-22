@@ -12,10 +12,10 @@
     <TextView
         android:layout_width="220dp"
         android:layout_height="50dp"
-        android:background="#116BB9"
+        android:background="#EE6FB9"
         android:gravity="center"
         android:textSize="18sp"
-        android:transitionName="share" />
+        android:transitionName="share2" />
 
     <TextView
         android:id="@+id/share_view"
@@ -26,6 +26,6 @@
         android:background="#116BB9"
         android:gravity="center"
         android:textSize="18sp"
-        android:transitionName="share" />
+        android:transitionName="share1" />
 
 </RelativeLayout>
