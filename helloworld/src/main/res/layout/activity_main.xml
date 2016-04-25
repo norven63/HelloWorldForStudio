@@ -422,6 +422,13 @@
                     android:onClick="IntentManager"
                     android:tag="com.myAndroid.helloworld.activity.shareElement.SharedElementActivity"
                     android:text="共享元素动画" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="IntentManager"
+                    android:tag="com.myAndroid.helloworld.activity.StatusBarActivity"
+                    android:text="透明状态栏" />
             </GridLayout>
         </LinearLayout>
     </HorizontalScrollView>

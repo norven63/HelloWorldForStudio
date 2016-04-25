@@ -1,9 +1,9 @@
 package com.myAndroid.helloworld.activity;
 
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.widget.SeekBar;
 
 import com.myAndroid.helloworld.R;
@@ -12,7 +12,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CardViewActivity extends Activity {
-
     @Bind(R.id.cardview)
     CardView cardview;
     @Bind(R.id.cardview_radius_seekbar)
@@ -46,7 +45,9 @@ public class CardViewActivity extends Activity {
         cardviewElevationSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                cardview.setElevation(progress);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    cardview.setElevation(progress);
+                }
             }
 
             @Override

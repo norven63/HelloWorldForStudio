@@ -211,8 +211,11 @@
         <activity android:name=".activity.RxJavaActivity" />
         <activity android:name=".activity.shadow.ShadowActivity" />
         <activity android:name=".activity.LayoutTransitionActivity" />
-        <activity android:name=".activity.shareElement.SharedElementActivity"/>
-        <activity android:name=".activity.shareElement.SharedElementActivity2"/>
+        <activity android:name=".activity.shareElement.SharedElementActivity" />
+        <activity android:name=".activity.shareElement.SharedElementActivity2" />
+        <activity
+            android:name=".activity.StatusBarActivity"
+            android:theme="@style/MyActivityTheme" />
     </application>
 
 </manifest>
