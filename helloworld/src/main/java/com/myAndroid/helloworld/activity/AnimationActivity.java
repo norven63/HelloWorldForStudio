@@ -17,15 +17,15 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
+import android.view.animation.OvershootInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
-
 import com.myAndroid.helloworld.R;
 import com.myAndroid.helloworld.customView.MyCanvasView;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class AnimationActivity extends Activity {
     @Bind(R.id.rotate)
@@ -38,12 +38,10 @@ public class AnimationActivity extends Activity {
     View translate;
     @Bind(R.id.objectAnimator)
     MyCanvasView objectAnimator;
-    @Bind(R.id.button_entity)
-    ImageView buttonEntity;
-    @Bind(R.id.button_shadow)
-    ImageView buttonShadow;
     @Bind(R.id.elastic)
     RelativeLayout elastic;
+    @Bind(R.id.scale2)
+    View scale2;
 
     @SuppressLint("NewApi")
     @Override
@@ -111,6 +109,12 @@ public class AnimationActivity extends Activity {
             public void onAnimationEnd(Animator animation) {
                 objectAnimator.setState(MyCanvasView.StateEnum.PROGRESS);
                 objectAnimator.invalidate();
+
+                /*
+                * 缩放动画2
+                */
+                scale2.animate().scaleX(1f).setDuration(400).setInterpolator(new OvershootInterpolator()).start();
+
             }
         });
         animatorSet.start();
