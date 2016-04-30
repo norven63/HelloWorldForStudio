@@ -203,7 +203,6 @@ public class DeviceInfoActivity extends Activity {
     /**
      * ===显示Device id===
      * 根据不同的手机设备返回IMEI、MEID或者ESN码
-     * <p/>
      * 1. 非手机设备： 如果设备没有通话的硬件功能的话，就没有这个DEVICE_ID
      * 2. 权限： 获取DEVICE_ID需要<uses-permission
      * android:name="android.permission.READ_PHONE_STATE"/>权限（目前Google已经开始禁止获取该权限）
@@ -216,7 +215,7 @@ public class DeviceInfoActivity extends Activity {
 
             TextView textView = (TextView) findViewById(R.id.device_id_textView_right);
             textView.setText(uuid.toString());
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
