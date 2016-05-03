@@ -1,11 +1,11 @@
 package com.myAndroid.helloworld.activity.recyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ZhouXinXing
@@ -147,12 +147,11 @@ public abstract class BaseGroupRecyclerAdapter<GroupItem, ChildItem, GroupViewHo
     /**
      * 根据<总索引>，计算出<组item>于所在集合中的索引、<子item>于所在集合中的索引
      *
-     * @param position
-     *            总索引
+     * @param position 总索引
      * @return
      */
     private int[] getPositions(final int position) {
-        int[] postions = new int[] { childDataSource.size() - 1, 0 };
+        int[] postions = new int[]{childDataSource.size() - 1, 0};
 
         int indexTemp = getItemCount();
         for (int i = 0; i < groupItemIndexList.size(); i++) {
@@ -211,25 +210,20 @@ public abstract class BaseGroupRecyclerAdapter<GroupItem, ChildItem, GroupViewHo
      * 绑定组item视图
      *
      * @param viewHolder
-     * @param position
-     *            总索引
-     * @param groupPosition
-     *            组item于所在集合的索引
+     * @param position      总索引
+     * @param groupPosition 组item于所在集合的索引
      */
     protected abstract void onBindGroupViewHolder(final GroupViewHolder viewHolder, final int position,
-            final int groupPosition);
+                                                  final int groupPosition);
 
     /**
      * 绑定子item视图
      *
      * @param viewHolder
-     * @param position
-     *            总索引
-     * @param groupPosition
-     *            组item于所在集合的索引
-     * @param childPosition
-     *            子item于所在集合的索引
+     * @param position      总索引
+     * @param groupPosition 组item于所在集合的索引
+     * @param childPosition 子item于所在集合的索引
      */
     protected abstract void onBindChildViewHolder(final ChildViewHolder viewHolder, final int position,
-            final int groupPosition, final int childPosition);
+                                                  final int groupPosition, final int childPosition);
 }

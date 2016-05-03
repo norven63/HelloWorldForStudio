@@ -1,9 +1,9 @@
 package com.myAndroid.helloworld.activity.recyclerView;
 
-import java.util.List;
-
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import java.util.List;
 
 /**
  * @author ZhouXinXing
@@ -12,8 +12,8 @@ import android.view.View;
  */
 public abstract class BaseRecyclerViewAdapter<ItemClass, ViewHolder extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<ViewHolder> {
-    public interface OnItemClickListener<ClickedItem> {
-        void onItemClick(int itemType, View itemView, ClickedItem clickedItem, int postion);
+    public interface OnItemClickListener<ItemClass> {
+        void onItemClick(int itemType, View itemView, ItemClass clickedItem, int postion);//注意：postion的值请务必使用holder.getAdapterPosition()来传递
     }
 
     protected List<ItemClass> dataSource;
