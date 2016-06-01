@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- name属性值必须和类名一致 -->
     <declare-styleable name="MyAttrView">
         <attr name="testattr" format="integer" /><!-- int -->
         <attr name="headerView" format="reference" /><!-- 资源引用 -->
     </declare-styleable>
 
+    <declare-styleable name="shadowView">
+        <attr name="sd_dx" format="dimension" />
+        <attr name="sd_dy" format="dimension" />
+        <attr name="sd_radius" format="dimension" />
+        <attr name="sd_color" format="color" />
+        <attr name="bg_color" format="color" />
+        <attr name="src" format="reference" />
+        <attr name="bg_type" format="enum">
+            <enum name="rect" value="-1" />
+            <enum name="circle" value="-2" />
+        </attr>
+    </declare-styleable>
 </resources>

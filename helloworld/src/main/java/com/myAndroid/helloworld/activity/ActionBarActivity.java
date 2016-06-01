@@ -1,5 +1,6 @@
 package com.myAndroid.helloworld.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,7 @@ public class ActionBarActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false);//关闭标题栏
         TextView textView = new TextView(this);
         textView.setText("@@@@@@@@");
-        textView.setTextColor(getResources().getColor(R.color.white));
+        textView.setTextColor(0xffffff);
         actionBar.setCustomView(textView);
     }
 

@@ -10,11 +10,9 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.util.Linkify;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -280,7 +278,7 @@ public class MainActivity extends Activity {
         newTextView1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                newTextView1.setBackground(getResources().getDrawable(R.color.blue));
+                newTextView1.setBackgroundColor(0x286BB9);
             }
         });
 
@@ -293,7 +291,7 @@ public class MainActivity extends Activity {
         newTextView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                newTextView.setBackground(getResources().getDrawable(R.color.blue));
+                newTextView1.setBackgroundColor(0x286BB9);
             }
         });
 

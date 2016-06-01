@@ -84,7 +84,7 @@ public class AnimationActivity extends Activity {
          * 动画集
          */
         //注意，这里渐变的是scale的背景
-        ValueAnimator colorAnim = ObjectAnimator.ofInt(scale.getBackground(), "color", getResources().getColor(android.R.color.holo_red_dark), getResources().getColor(R.color.blue));
+        ValueAnimator colorAnim = ObjectAnimator.ofInt(scale.getBackground(), "color", 0xffcc0000, 0x286BB9);
         colorAnim.setEvaluator(new ArgbEvaluator());//该接口可以使眼色柔和的渐变
 
         final int animFromWidth = (int) getResources().getDimension(R.dimen.animationFromWidth);
